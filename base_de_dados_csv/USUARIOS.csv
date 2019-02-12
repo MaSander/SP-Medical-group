@@ -1,0 +1,12 @@
+ID;NOME;EMAIL;SENHA;ID_TIPO_USUARIO
+1;Adiministrador;Adm@email.com;adimin123;1
+2;Ricardo Lemos;ricardo.lemos@spmedicalgroup.com.br;a123;2
+3;Roberto Possarle;roberto.possarle1@spmedicalgroup.com.br;b321;2
+4;Helena Strada;roberto.possarle@spmedicalgroup.com.br;c213;2
+5;Ligia;ligia@gmail.com;senha1;3
+6;Alexandre;alexandre@gmail.com;senha2;3
+7;Fernando;fernando@gmail.com;senha3;3
+8;Henrique;henrique@gmail.com;senha4;3
+9;João;joao@hotmail.com;senha5;3
+10;Bruno;bruno@gmail.com;senha6;3
+11;Mariana;mariana@outlook.com;senha7;2
