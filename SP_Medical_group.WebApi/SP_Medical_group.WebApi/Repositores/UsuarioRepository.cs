@@ -1,4 +1,5 @@
-﻿using SP_Medical_group.WebApi.Domains;
+﻿using Microsoft.EntityFrameworkCore;
+using SP_Medical_group.WebApi.Domains;
 using SP_Medical_group.WebApi.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace SP_Medical_group.WebApi.Repositores
         {
             using (SpMedGroupContext ctx = new SpMedGroupContext())
             {
-                return ctx.Usuarios.FirstOrDefault(u => u.Email == email && u.Senha == senha);
+                return ctx.Usuarios.Include(x => x.IdTipoUsuarioNavigation).FirstOrDefault(u => u.Email == email && u.Senha == senha);
             }
         }
 

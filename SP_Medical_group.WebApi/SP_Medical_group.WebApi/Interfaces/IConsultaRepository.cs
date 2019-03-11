@@ -13,5 +13,7 @@ namespace SP_Medical_group.WebApi.Interfaces
         void Atualizar(Consulta consulta);
 
         Consulta BuscarPorId(int id);
+
+        List<Consulta> ConsultasUsuarios(int usuarioId);
     }
 }

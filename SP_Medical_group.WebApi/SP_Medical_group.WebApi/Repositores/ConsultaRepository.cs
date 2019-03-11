@@ -34,5 +34,14 @@ namespace SP_Medical_group.WebApi.Repositores
                 return ctx.Consulta.Find(id);
             }
         }
+
+        public List<Consulta> ConsultasUsuarios(int usuarioId)
+        {
+            using(SpMedGroupContext ctx = new SpMedGroupContext())
+            {
+                return ctx.Consulta.ToList();
+            }
+        }
+
     }
 }

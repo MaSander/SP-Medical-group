@@ -56,9 +56,10 @@ namespace SP_Medical_group.WebApi
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvc();
-
+            //colocar comando antes do UseMvc. caso contrario ele não será executado
             app.UseAuthentication();
+
+            app.UseMvc();
         }
     }
 }
