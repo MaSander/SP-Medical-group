@@ -14,6 +14,8 @@ namespace SP_Medical_group.WebApi.Interfaces
 
         Consulta BuscarPorId(int id);
 
-        List<Consulta> ConsultasUsuarios(int usuarioId);
+        List<Consulta> ConsultasPacientes(int usuarioId);
+
+        List<Consulta> ConsultasMedicos(int usuarioId);
     }
 }

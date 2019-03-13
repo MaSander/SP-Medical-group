@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace SP_Medical_group.WebApi
 {
@@ -24,6 +25,14 @@ namespace SP_Medical_group.WebApi
                 })
               .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
 
+            //-------------------------------------------------
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "SpMedicalGroup", Version = "v1" });
+            });
+
+            //-------------------------------------------------
 
             services.AddAuthentication(opitions =>
             {
@@ -55,6 +64,13 @@ namespace SP_Medical_group.WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "SpMedicalGroup API");
+            });
 
             //colocar comando antes do UseMvc. caso contrario ele não será executado
             app.UseAuthentication();

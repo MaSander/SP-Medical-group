@@ -75,19 +75,37 @@ namespace SP_Medical_group.WebApi.Controllers
             }
         }
 
-        [Authorize]
-        [HttpGet]
-        public IActionResult Get()
+        [Authorize(Roles = "Paciente")]
+        //[Route("Paciente")]
+        [HttpGet("Paciente")]
+        public IActionResult Paciente()
         {
             try
             {
                 int usuarioId = Convert.ToInt32(HttpContext.User.Claims.First(x => x.Type == JwtRegisteredClaimNames.Jti).Value);
-                return Ok(ConsultaRepository.ConsultasUsuarios(usuarioId));
+
+                return Ok(ConsultaRepository.ConsultasPacientes(usuarioId));
             }
             catch(Exception ex)
             {
                 return BadRequest(ex);
 
+            }
+        }
+
+        [Authorize(Roles = "Médico")]
+        //[Route("Medico")]
+        [HttpGet("Medico")]
+        public IActionResult Medico()
+        {
+            try
+            {
+                int usuarioId = Convert.ToInt32(HttpContext.User.Claims.First(x => x.Type == JwtRegisteredClaimNames.Jti).Value);
+                return Ok(ConsultaRepository.ConsultasMedicos(usuarioId));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
             }
         }
     }

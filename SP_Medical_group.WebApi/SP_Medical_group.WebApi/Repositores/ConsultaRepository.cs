@@ -35,13 +35,34 @@ namespace SP_Medical_group.WebApi.Repositores
             }
         }
 
-        public List<Consulta> ConsultasUsuarios(int usuarioId)
+        public List<Consulta> ConsultasPacientes(int usuarioId)
         {
-            using(SpMedGroupContext ctx = new SpMedGroupContext())
+            Prontuarios prontuario;
+
+            using (SpMedGroupContext ctx = new SpMedGroupContext())
             {
-                return ctx.Consulta.ToList();
+                prontuario = ctx.Prontuarios.FirstOrDefault(x => x.IdUsuario == usuarioId);
+            }
+
+            using (SpMedGroupContext ctx = new SpMedGroupContext())
+            {
+                return ctx.Consulta.Where(x => x.IdProntuario == prontuario.Id).ToList();
             }
         }
 
+        public List<Consulta> ConsultasMedicos(int usuarioId)
+        {
+            Medicos medico;
+
+            using (SpMedGroupContext ctx = new SpMedGroupContext())
+            {
+                medico = ctx.Medicos.FirstOrDefault(x => x.IdUsuario == usuarioId);
+            }
+            
+            using (SpMedGroupContext ctx = new SpMedGroupContext())
+            {
+                return ctx.Consulta.Where(x => x.IdMedico == medico.Id).ToList();
+            }
+        }
     }
 }
