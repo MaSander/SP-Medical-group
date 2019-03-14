@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -24,6 +25,8 @@ namespace SP_Medical_group.WebApi.Controllers
             UsuarioRepository = new UsuarioRepository();
         }
 
+        EmailController EnvioEmail = new EmailController();
+
         [Authorize(Roles = "Adiministrador")]
         [HttpPost]
         public IActionResult Cadastrar(Usuarios usuario)
@@ -31,6 +34,9 @@ namespace SP_Medical_group.WebApi.Controllers
             try
             {
                 UsuarioRepository.Cadastrar(usuario);
+
+                EnvioEmail.Incrementar(usuario.Email, usuario.Nome);
+
                 return Ok();
             }
             catch (Exception ex)
