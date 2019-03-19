@@ -7,11 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 
-namespace SP_Medical_group.WebApi.Controllers
+namespace SP_Medical_group.WebApi.Utils
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class EmailController : ControllerBase
+    public class EmailSendGrid
     {
         static public string Email { get; set; }
         static public string Nome { get; set; }

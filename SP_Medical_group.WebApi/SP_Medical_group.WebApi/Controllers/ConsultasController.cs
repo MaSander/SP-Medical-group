@@ -108,5 +108,40 @@ namespace SP_Medical_group.WebApi.Controllers
                 return BadRequest(ex);
             }
         }
+
+        [Authorize]
+        [HttpGet]
+        public IActionResult Get()
+        {
+            string UTipo = HttpContext.User.Claims.First(x => x.Type == JwtRegisteredClaimNames.Typ).Value;
+
+            if(UTipo == "Médico")
+            {
+                try
+                {
+                    int usuarioId = Convert.ToInt32(HttpContext.User.Claims.First(x => x.Type == JwtRegisteredClaimNames.Jti).Value);
+                    return Ok(ConsultaRepository.ConsultasMedicos(usuarioId));
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex);
+                }
+            }
+            else if(UTipo == "Paciente")
+            {
+                try
+                {
+                    int usuarioId = Convert.ToInt32(HttpContext.User.Claims.First(x => x.Type == JwtRegisteredClaimNames.Jti).Value);
+
+                    return Ok(ConsultaRepository.ConsultasPacientes(usuarioId));
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex);
+                }
+            }
+
+            return BadRequest();
+        }
     }
 }

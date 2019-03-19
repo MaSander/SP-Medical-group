@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using SP_Medical_group.WebApi.Domains;
 using SP_Medical_group.WebApi.Interfaces;
 using SP_Medical_group.WebApi.Repositores;
+using SP_Medical_group.WebApi.Utils;
 
 namespace SP_Medical_group.WebApi.Controllers
 {
@@ -25,12 +26,12 @@ namespace SP_Medical_group.WebApi.Controllers
             UsuarioRepository = new UsuarioRepository();
         }
 
-        EmailController EnvioEmail = new EmailController();
-
         [Authorize(Roles = "Adiministrador")]
         [HttpPost]
         public IActionResult Cadastrar(Usuarios usuario)
         {
+            EmailSendGrid EnvioEmail = new EmailSendGrid();
+
             try
             {
                 UsuarioRepository.Cadastrar(usuario);
@@ -38,6 +39,34 @@ namespace SP_Medical_group.WebApi.Controllers
                 EnvioEmail.Incrementar(usuario.Email, usuario.Nome);
 
                 return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        [Authorize]
+        [HttpGet("Pacientes")]
+        public IActionResult ListaPacientes()
+        {
+            try
+            {
+                return Ok(UsuarioRepository.ListarPacientes());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        [Authorize]
+        [HttpGet("Medicos")]
+        public IActionResult ListaMedicos()
+        {
+            try
+            {
+                return Ok(UsuarioRepository.ListarMedicos());
             }
             catch (Exception ex)
             {

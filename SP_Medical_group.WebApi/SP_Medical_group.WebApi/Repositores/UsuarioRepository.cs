@@ -26,5 +26,21 @@ namespace SP_Medical_group.WebApi.Repositores
                 ctx.SaveChanges();
             }
         }
+
+        List<Prontuarios> IUsuarioRepository.ListarMedicos()
+        {
+            using (SpMedGroupContext ctx = new SpMedGroupContext())
+            {
+                return ctx.Prontuarios.ToList();
+            }
+        }
+
+        List<Medicos> IUsuarioRepository.ListarPacientes()
+        {
+            using (SpMedGroupContext ctx = new SpMedGroupContext())
+            {
+                return ctx.Medicos.ToList();
+            }
+        }
     }
 }
