@@ -55,6 +55,14 @@ namespace SP_Medical_group.WebApi
                 };
             });
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -74,6 +82,9 @@ namespace SP_Medical_group.WebApi
 
             //colocar comando antes do UseMvc. caso contrario ele não será executado
             app.UseAuthentication();
+ 
+            app.UseCors("CorsPolicy");
+
 
             app.UseMvc();
         }
