@@ -1,15 +1,45 @@
 import React, { Component } from 'react';
 import '../../assets/css/login.css';
-
+import axios from 'axios'
 
 
 class Login extends Component {
+    constructor() {
+        super()
+
+        this.state = {
+            email: ''
+            , senha: ''
+        }
+    }
+
+    efetuarLogin(event) {
+        event.preventDefault();
+
+        axios.post('http://localhost:5000/api/Login', {
+            email: this.state.email, senha: this.state.senha
+        })
+            .then(data => {
+                localStorage.setItem("SpMedicalGroup-chave-autenticacao", data.data.token);
+                this.props.history.push("/")
+                console.log(data);
+            })
+            .catch(erro => { console.log(erro) });
+    }
+
+    atualizaEstadoEmail(event) {
+        this.setState({ email: event.target.value })
+    }
+
+    atualizaEstadoSenha(event) {
+        this.setState({ senha: event.target.value })
+    }
 
     render() {
 
         return (
             <main className="main__login">
-                <span className="btnInicio"><a href="#">inicio</a></span>
+                <span className="btnInicio"><a href="/">inicio</a></span>
 
                 <div className="Formulario">
                     <div className="Cabecalho">
@@ -18,19 +48,32 @@ class Login extends Component {
                         </div>
                         <h1 className="med_h1"><span className="med_span">Medical</span> Group</h1>
                     </div>
-                    <div className="Fixa">
-                        <h2>Login</h2>
-                        <span>E-mail :
-                    <input className="spn_fixa" type="email" name="email" />
-                        </span>
+                    <form onSubmit={this.efetuarLogin.bind(this)}>
 
-                        <span>Senha :
-                    <input className="spn_fixa" type="password" name="senha" />
-                        </span>
+                        <div className="Fixa">
+                            <h2>Login</h2>
+                            <span>E-mail :
+                            <input className="spn_fixa"
+                                    type="email"
+                                    name="email"
+                                    onChange={this.atualizaEstadoEmail.bind(this)}
+                                    value={this.state.email}
+                                />
+                            </span>
 
-                        <button className="btn_logar">Entrar</button>
+                            <span>Senha :
+                            <input className="spn_fixa"
+                                    type="password"
+                                    name="senha"
+                                    onChange={this.atualizaEstadoSenha.bind(this)}
+                                    value={this.state.senha}
+                                />
+                            </span>
 
-                    </div>
+                            <button className="btn_logar">Entrar</button>
+
+                        </div>
+                    </form>
                 </div>
             </main>
         );

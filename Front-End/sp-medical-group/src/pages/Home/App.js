@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../../assets/css/home.css';
+// import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300';
 
 // import logo from '../../assets/img/icon-login.png';
 
@@ -37,9 +38,9 @@ class App extends Component {
           <nav id="Navegador" className="Flex-cont" >
             <div className="separador" />
             <ul className="Navegador Flex-cont">
-              <div><a href="#">Consultas</a></div>
+              <div><a href="/ListaConsultas">Consultas</a></div>
               <div><a href="#">Clínicas</a></div>
-              <div><a href="#">Especialidades</a></div>
+              <div><a href="/login">login</a></div>
             </ul>
           </nav>
         </header>

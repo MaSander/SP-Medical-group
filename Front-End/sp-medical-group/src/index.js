@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './pages/Home/App';
 import Login from './pages/Login/Login';
+import ListaConsultas from './pages/Consultas/ListaConsultas';
+import CadastraUsuario from './pages/Usuarios/CadastroUsuario';
+import CadastraConsultas from './pages/Consultas/CadastroConsultas';
 
 import {Route, BrowserRouter as Router, Switch} from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
@@ -13,6 +16,9 @@ const rotas = (
             <Switch>
                 <Route exact path='/' component={App} />
                 <Route path='/login' component={Login} />
+                <Route path='/Listaconsultas' component={ListaConsultas} />
+                <Route path='/CadastraUsuario' component={CadastraUsuario} />
+                <Route path='/CadastraConsultas' component={CadastraConsultas} />
             </Switch>
         </div>
     </Router>

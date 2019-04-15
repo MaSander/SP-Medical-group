@@ -1,4 +1,5 @@
-﻿using SP_Medical_group.WebApi.Domains;
+﻿using Microsoft.EntityFrameworkCore;
+using SP_Medical_group.WebApi.Domains;
 using SP_Medical_group.WebApi.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -46,7 +47,13 @@ namespace SP_Medical_group.WebApi.Repositores
 
             using (SpMedGroupContext ctx = new SpMedGroupContext())
             {
-                return ctx.Consulta.Where(x => x.IdProntuario == prontuario.Id).ToList();
+                return ctx.Consulta.Include(x => x.IdTipoSituacaoNavigation)
+                                           .Include(x => x.IdProntuarioNavigation)
+                                           .Include(x => x.IdProntuarioNavigation.IdUsuarioNavigation)
+                                           .Include(x => x.IdMedicoNavigation)
+                                           .Include(x => x.IdMedicoNavigation.IdUsuarioNavigation)
+                                           .Include(x => x.IdMedicoNavigation.IdEspecialidadeNavigation)
+                                           .Where(x => x.IdProntuario == prontuario.Id).ToList();
             }
         }
 
