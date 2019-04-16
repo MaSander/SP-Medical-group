@@ -13,5 +13,7 @@ namespace SP_Medical_group.WebApi.Interfaces
         void Atualizar(Clinicas clinicas);
 
         Clinicas BuscarPorId(int id);
+
+        List<Clinicas> BuscarClinica();
     }
 }

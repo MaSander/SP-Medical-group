@@ -18,6 +18,14 @@ namespace SP_Medical_group.WebApi.Repositores
             }
         }
 
+        public List<Clinicas> BuscarClinica()
+        {
+            using(SpMedGroupContext ctx = new SpMedGroupContext())
+            {
+                return ctx.Clinicas.ToList();
+            }
+        }
+
         public Clinicas BuscarPorId(int id)
         {
             using (SpMedGroupContext ctx = new SpMedGroupContext())

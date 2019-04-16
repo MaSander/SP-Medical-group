@@ -47,7 +47,7 @@ namespace SP_Medical_group.WebApi.Repositores
 
             using (SpMedGroupContext ctx = new SpMedGroupContext())
             {
-                return ctx.Consulta.Include(x => x.IdTipoSituacaoNavigation)
+                return ctx.Consulta        .Include(x => x.IdTipoSituacaoNavigation)
                                            .Include(x => x.IdProntuarioNavigation)
                                            .Include(x => x.IdProntuarioNavigation.IdUsuarioNavigation)
                                            .Include(x => x.IdMedicoNavigation)

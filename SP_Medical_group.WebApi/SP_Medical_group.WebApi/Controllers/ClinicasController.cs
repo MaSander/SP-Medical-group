@@ -86,5 +86,17 @@ namespace SP_Medical_group.WebApi.Controllers
             }
         }
 
+        [HttpGet]
+        public IActionResult Get()
+        {
+            try
+            {
+                return Ok(ClinicaRepository.BuscarClinica());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
     }
 }

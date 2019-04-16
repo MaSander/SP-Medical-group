@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import '../../assets/css/listaConsultas.css'
 import axios from 'axios'
+import Navegador from '../../components/Cabecalho/Navegador'
+
 
 class ListaConsultas extends Component{
     constructor(event){
@@ -33,15 +35,8 @@ class ListaConsultas extends Component{
         return (
             <div className="ListConsulta__">    
     
-            <nav id="Navegador" className="Flex-cont ListConsulta__nav">
-                <div className="separador"></div>
-                <ul className="Navegador Flex-cont">
-                    <div><a href="#">Consultas</a></div>
-                    <div><a href="#">Clínicas</a></div>
-                    <div><a href="#">Especialidades</a></div>
-                </ul>
-            </nav>
-    
+            <Navegador />
+
             <div className="ListConsulta__Sumario">
                 <h2> Consultas</h2>
     
@@ -83,7 +78,7 @@ class ListaConsultas extends Component{
                             <div className="ListConsulta__Medico">
                                 <div className="ListConsulta__NomeMedico">{consultalist.idMedicoNavigation.idUsuarioNavigation.nome}</div>
                                 <div className="ListConsulta__Especialidade">
-                                {consultalist.idMedicoNavigation.idEspecialidade}
+                                {consultalist.idMedicoNavigation.idEspecialidadeNavigation.nome}
                                 </div>
                             </div>
             
@@ -94,39 +89,6 @@ class ListaConsultas extends Component{
                     )
                 })
             }
-
-{/* this.state.lista.reverse().map(function (listadesejos) {
-                                    return (
-                                        <tr key={listadesejos.id}>
-                                            <td>{listadesejos.desejo}</td>
-                                        </tr>
-                                    )
-                                }) */}
-
-    
-            {/* <div className="ListConsulta__Consultas">
-                <header className="ListConsulta__FormTop">
-                    <div className="ListConsulta__Data">23/7/2019</div>
-                    <div className="ListConsulta__Status">Status : Agendada</div>
-                </header>
-    
-                <main className="ListConsulta__FormMain">
-                    <div className="ListConsulta__Paciente">
-                        <div className="ListConsulta__NomePaciente">husnuinan</div>
-                        <div className="ListConsulta__DataNascimento">1/1/5</div>
-                    </div>
-    
-                    <div className="ListConsulta__Medico">
-                        <div className="ListConsulta__NomeMedico">papapapapapapa</div>
-                        <div className="ListConsulta__Especialidade">brghevfijcdihe</div>
-                    </div>
-    
-                    <div className="ListConsulta__Descricao">
-                        descriçao barari balala
-                    </div>
-                </main>
-            </div> */}
-    
         </div>
         );
     }
