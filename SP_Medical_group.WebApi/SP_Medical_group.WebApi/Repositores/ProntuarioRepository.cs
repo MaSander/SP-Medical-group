@@ -22,6 +22,7 @@ namespace SP_Medical_group.WebApi.Repositores
             using (SpMedGroupContext ctx = new SpMedGroupContext())
             {
                 ctx.Prontuarios.Add(prontuario);
+                ctx.SaveChanges();
             }
         }
     }

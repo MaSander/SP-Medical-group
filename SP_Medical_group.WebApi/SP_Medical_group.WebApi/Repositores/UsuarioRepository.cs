@@ -27,19 +27,27 @@ namespace SP_Medical_group.WebApi.Repositores
             }
         }
 
-        List<Prontuarios> IUsuarioRepository.ListarMedicos()
-        {
-            using (SpMedGroupContext ctx = new SpMedGroupContext())
-            {
-                return ctx.Prontuarios.ToList();
-            }
-        }
+        //List<Prontuarios> IUsuarioRepository.ListarPacientes()
+        //{
+        //    using (SpMedGroupContext ctx = new SpMedGroupContext())
+        //    {
+        //        return ctx.Prontuarios.ToList();
+        //    }
+        //}
 
-        List<Medicos> IUsuarioRepository.ListarPacientes()
+        //List<Medicos> IUsuarioRepository.ListarMedicos()
+        //{
+        //    using (SpMedGroupContext ctx = new SpMedGroupContext())
+        //    {
+        //        return ctx.Medicos.ToList();
+        //    }
+        //}
+
+        public List<Usuarios> ListarUsuarios()
         {
             using (SpMedGroupContext ctx = new SpMedGroupContext())
             {
-                return ctx.Medicos.ToList();
+                return ctx.Usuarios.ToList();
             }
         }
     }

@@ -6,6 +6,8 @@ import Login from './pages/Login/Login';
 import ListaConsultas from './pages/Consultas/ListaConsultas';
 import CadastraUsuario from './pages/Usuarios/CadastroUsuario';
 import CadastraConsultas from './pages/Consultas/CadastroConsultas';
+import CadastraProntuario from './pages/Prontuarios/CadastroProntuario';
+import CadastraMedico from './pages/Medicos/CadastroMedico';
 
 import {Route, BrowserRouter as Router, Switch} from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
@@ -18,7 +20,9 @@ const rotas = (
                 <Route path='/login' component={Login} />
                 <Route path='/Listaconsultas' component={ListaConsultas} />
                 <Route path='/CadastraUsuario' component={CadastraUsuario} />
-                <Route path='/CadastraConsultas' component={CadastraConsultas} />
+                <Route path='/CadastraConsulta' component={CadastraConsultas} />
+                <Route path='/CadastraProntuario' component={CadastraProntuario} />
+                <Route path='/CadastraMedico' component={CadastraMedico} />
             </Switch>
         </div>
     </Router>

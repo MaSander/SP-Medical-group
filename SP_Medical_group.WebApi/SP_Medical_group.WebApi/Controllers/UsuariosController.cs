@@ -47,12 +47,12 @@ namespace SP_Medical_group.WebApi.Controllers
         }
 
         [Authorize]
-        [HttpGet("Pacientes")]
+        [HttpGet("Usuarios")]
         public IActionResult ListaPacientes()
         {
             try
             {
-                return Ok(UsuarioRepository.ListarPacientes());
+                return Ok(UsuarioRepository.ListarUsuarios());
             }
             catch (Exception ex)
             {
@@ -60,18 +60,5 @@ namespace SP_Medical_group.WebApi.Controllers
             }
         }
 
-        [Authorize]
-        [HttpGet("Medicos")]
-        public IActionResult ListaMedicos()
-        {
-            try
-            {
-                return Ok(UsuarioRepository.ListarMedicos());
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex);
-            }
-        }
     }
 }

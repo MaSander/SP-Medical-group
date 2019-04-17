@@ -16,15 +16,16 @@ class Login extends Component {
     efetuarLogin(event) {
         event.preventDefault();
 
+        localStorage.setItem("SpMedicalGroup-chave-autenticacao", null)
+
         axios.post('http://localhost:5000/api/Login', {
             email: this.state.email, senha: this.state.senha
         })
             .then(data => {
                 localStorage.setItem("SpMedicalGroup-chave-autenticacao", data.data.token);
-                this.props.history.push("/  ")
-                // console.log(data);
+                this.props.history.push("/Listaconsultas")
             })
-            .catch(erro => { console.log(erro) });
+            .catch(erro => { console.log(erro)}, alert("Usuario Incorreto"));
     }
 
     atualizaEstadoEmail(event) {

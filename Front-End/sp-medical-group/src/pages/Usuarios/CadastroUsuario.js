@@ -48,7 +48,11 @@ class CadastroUsuario extends Component{
     })
         .then(data => {
             console.log(data);
-            alert("Usuario Cadastrado com sucesso!!!!")
+            if(this.state.tipo == 3){
+                this.props.history.push("/CadastraProntuario")
+            } else if(this.state.tipo == 2){
+                this.props.history.push("/CadastraMedico")
+            }
         })
         .catch(erro => {console.log(erro)})
     }

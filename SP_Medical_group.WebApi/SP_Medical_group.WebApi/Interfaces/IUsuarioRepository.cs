@@ -12,8 +12,8 @@ namespace SP_Medical_group.WebApi.Interfaces
 
         Usuarios BuscarPorEmailSenha(string email, string senha);
 
-        List<Medicos> ListarPacientes();
+        List<Usuarios> ListarUsuarios();
 
-        List<Prontuarios> ListarMedicos();
+        //List<Medicos> ListarMedicos();
     }
 }
