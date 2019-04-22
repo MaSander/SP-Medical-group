@@ -71,5 +71,14 @@ namespace SP_Medical_group.WebApi.Repositores
                 return ctx.Consulta.Where(x => x.IdMedico == medico.Id).ToList();
             }
         }
+
+        public List<Consulta> Consultas()
+        {
+            using (SpMedGroupContext ctx = new SpMedGroupContext())
+            {
+                return ctx.Consulta.ToList();
+            }
+        }
+
     }
 }

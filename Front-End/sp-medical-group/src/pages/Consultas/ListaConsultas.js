@@ -3,6 +3,11 @@ import '../../assets/css/listaConsultas.css'
 import axios from 'axios'
 import Navegador from '../../components/Cabecalho/Navegador'
 
+// const Urls = {
+//     medicos : 'http://localhost:5000/api/Consultas/Paciente'
+//     ,pacientes : 'http://localhost:5000/api/Consultas/Medico'
+//     ,adiministrador : 'http://localhost:5000/api/Consultas/Adiministrador'
+// }
 
 class ListaConsultas extends Component{
     constructor(event){

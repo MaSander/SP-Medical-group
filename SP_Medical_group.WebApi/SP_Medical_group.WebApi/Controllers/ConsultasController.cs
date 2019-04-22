@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -76,7 +77,7 @@ namespace SP_Medical_group.WebApi.Controllers
         }
 
         //[Authorize(Roles = "Paciente")]
-        ////[Route("Paciente")]
+        //[Route("Paciente")]
         //[HttpGet("Paciente")]
         //public IActionResult Paciente()
         //{
@@ -86,7 +87,7 @@ namespace SP_Medical_group.WebApi.Controllers
 
         //        return Ok(ConsultaRepository.ConsultasPacientes(usuarioId));
         //    }
-        //    catch(Exception ex)
+        //    catch (Exception ex)
         //    {
         //        return BadRequest(ex);
 
@@ -94,7 +95,7 @@ namespace SP_Medical_group.WebApi.Controllers
         //}
 
         //[Authorize(Roles = "Médico")]
-        ////[Route("Medico")]
+        //[Route("Medico")]
         //[HttpGet("Medico")]
         //public IActionResult Medico()
         //{
@@ -109,13 +110,29 @@ namespace SP_Medical_group.WebApi.Controllers
         //    }
         //}
 
-        [Authorize]
+        //[Authorize(Roles = "Adiministrador")]
+        //[Route("Adiministrador")]
+        //[HttpGet]
+        //public IActionResult AdiministradorGet()
+        //{
+//            try
+//            {
+//                return Ok(ConsultaRepository.Consultas());
+//    }
+//            catch (Exception ex)
+//            {
+//                return BadRequest(ex);
+//}
+//}
+
+[Authorize]
+        //[Route("Usuario")]
         [HttpGet]
         public IActionResult Get()
         {
-            string UTipo = HttpContext.User.Claims.First(x => x.Type == JwtRegisteredClaimNames.Typ).Value;
+            string UTipo = HttpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Role).Value;
 
-            if(UTipo == "Médico")
+            if (UTipo == "Médico")
             {
                 try
                 {
@@ -127,13 +144,22 @@ namespace SP_Medical_group.WebApi.Controllers
                     return BadRequest(ex);
                 }
             }
-            else if(UTipo == "Paciente")
+            else if (UTipo == "Paciente")
             {
                 try
                 {
                     int usuarioId = Convert.ToInt32(HttpContext.User.Claims.First(x => x.Type == JwtRegisteredClaimNames.Jti).Value);
-
                     return Ok(ConsultaRepository.ConsultasPacientes(usuarioId));
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex);
+                }
+            }else if (UTipo == "Administrador")
+            {
+                try
+                {
+                    return Ok(ConsultaRepository.Consultas());
                 }
                 catch (Exception ex)
                 {
@@ -143,5 +169,6 @@ namespace SP_Medical_group.WebApi.Controllers
 
             return BadRequest();
         }
+
     }
 }

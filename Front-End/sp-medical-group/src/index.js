@@ -8,9 +8,53 @@ import CadastraUsuario from './pages/Usuarios/CadastroUsuario';
 import CadastraConsultas from './pages/Consultas/CadastroConsultas';
 import CadastraProntuario from './pages/Prontuarios/CadastroProntuario';
 import CadastraMedico from './pages/Medicos/CadastroMedico';
+import { usuarioAutenticado } from '../src/services/auth'
 
-import {Route, BrowserRouter as Router, Switch} from 'react-router-dom';
+import {Route, BrowserRouter as Router, Switch, Redirect} from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
+
+const CadastraUsuarioPermissao = ({component : Component}) => (
+    <Route 
+        render = {props => usuarioAutenticado() ?
+        (<Component {...props} />) :
+        (<Redirect to={{pathname : '/login', state : {from : props.location}}} />)
+        }
+    />
+);
+
+const CadastraConsultaPermissao = ({component : Component}) => (
+    <Route 
+        render = {props => usuarioAutenticado() ?
+        (<Component {...props} />) :
+        (<Redirect to={{pathname : '/login', state : {from : props.location}}} />)
+        }
+    />
+)
+;
+const CadastraProntuarioPermissao = ({component : Component}) => (
+    <Route 
+        render = {props => usuarioAutenticado() ?
+        (<Component {...props} />) :
+        (<Redirect to={{pathname : '/login', state : {from : props.location}}} />)
+        }
+    />
+);
+const CadastraMedicoPermissao = ({component : Component}) => (
+    <Route 
+        render = {props => usuarioAutenticado() ?
+        (<Component {...props} />) :
+        (<Redirect to={{pathname : '/login', state : {from : props.location}}} />)
+        }
+    />
+);
+const ListaconsultasPermissao = ({component : Component}) => (
+    <Route 
+        render = {props => usuarioAutenticado() ?
+        (<Component {...props} />) :
+        (<Redirect to={{pathname : '/login', state : {from : props.location}}} />)
+        }
+    />
+);
 
 const rotas = ( 
     <Router>
@@ -18,11 +62,11 @@ const rotas = (
             <Switch>
                 <Route exact path='/' component={App} />
                 <Route path='/login' component={Login} />
-                <Route path='/Listaconsultas' component={ListaConsultas} />
-                <Route path='/CadastraUsuario' component={CadastraUsuario} />
-                <Route path='/CadastraConsulta' component={CadastraConsultas} />
-                <Route path='/CadastraProntuario' component={CadastraProntuario} />
-                <Route path='/CadastraMedico' component={CadastraMedico} />
+                <ListaconsultasPermissao path='/Listaconsultas' component={ListaConsultas} />
+                <CadastraUsuarioPermissao path='/CadastraUsuario' component={CadastraUsuario} />
+                <CadastraConsultaPermissao path='/CadastraConsulta' component={CadastraConsultas} />
+                <CadastraProntuarioPermissao path='/CadastraProntuario' component={CadastraProntuario} />
+                <CadastraMedicoPermissao path='/CadastraMedico' component={CadastraMedico} />
             </Switch>
         </div>
     </Router>

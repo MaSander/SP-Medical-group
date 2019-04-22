@@ -48,9 +48,9 @@ class CadastroUsuario extends Component{
     })
         .then(data => {
             console.log(data);
-            if(this.state.tipo == 3){
+            if(this.state.tipo === 3){
                 this.props.history.push("/CadastraProntuario")
-            } else if(this.state.tipo == 2){
+            } else if(this.state.tipo === 2){
                 this.props.history.push("/CadastraMedico")
             }
         })

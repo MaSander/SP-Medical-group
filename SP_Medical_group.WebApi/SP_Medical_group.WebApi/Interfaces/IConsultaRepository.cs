@@ -17,5 +17,7 @@ namespace SP_Medical_group.WebApi.Interfaces
         List<Consulta> ConsultasPacientes(int usuarioId);
 
         List<Consulta> ConsultasMedicos(int usuarioId);
+
+        List<Consulta> Consultas();
     }
 }

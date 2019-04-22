@@ -25,7 +25,7 @@ class Login extends Component {
                 localStorage.setItem("SpMedicalGroup-chave-autenticacao", data.data.token);
                 this.props.history.push("/Listaconsultas")
             })
-            .catch(erro => { console.log(erro)}, alert("Usuario Incorreto"));
+            .catch(erro => { console.log(erro)});
     }
 
     atualizaEstadoEmail(event) {

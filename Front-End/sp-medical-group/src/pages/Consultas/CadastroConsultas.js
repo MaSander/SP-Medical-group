@@ -62,7 +62,7 @@ class CadastroConsultas extends Component {
     render(){
         return(
             <div className="cadastroConsulta__body">
-            <a href="/"></a>
+            {/* <a href="/"></a> */}
     
             <h1>Cadastro de Consultas</h1>
     

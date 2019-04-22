@@ -37,7 +37,7 @@ namespace SP_Medical_group.WebApi.Controllers
                 {
                     return NotFound(new
                     {
-                        mensage = "Usuaro não foi encontrado"
+                        mensage = "Usuario não foi encontrado"
                     });
                 }
 

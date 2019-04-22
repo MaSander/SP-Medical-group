@@ -71,7 +71,7 @@ export default class CadastroProntuario extends Component {
     render(){
         return(
         <div className="cadastroConsulta__body">
-            <a href="/"></a>
+            {/* <a href="/"></a> */}
     
             <h1>Cadastro de Prontuario</h1>
     
