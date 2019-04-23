@@ -45,7 +45,8 @@ namespace SP_Medical_group.WebApi.Controllers
                 {
                     new Claim(JwtRegisteredClaimNames.Email, usuario.Email),
                     new Claim(JwtRegisteredClaimNames.Jti, usuario.Id.ToString()),
-                    new Claim(ClaimTypes.Role, usuario.IdTipoUsuarioNavigation.Nome)
+                    new Claim(ClaimTypes.Role, usuario.IdTipoUsuarioNavigation.Nome),
+                    new Claim("tipoUsuario", usuario.IdTipoUsuarioNavigation.Nome)
                 };
 
                 var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("SpMedicalGroup-chave-autenticacao"));

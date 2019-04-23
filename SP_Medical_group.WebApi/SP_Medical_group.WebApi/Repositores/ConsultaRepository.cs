@@ -68,7 +68,13 @@ namespace SP_Medical_group.WebApi.Repositores
             
             using (SpMedGroupContext ctx = new SpMedGroupContext())
             {
-                return ctx.Consulta.Where(x => x.IdMedico == medico.Id).ToList();
+                return ctx.Consulta.Include(x => x.IdTipoSituacaoNavigation)
+                                           .Include(x => x.IdProntuarioNavigation)
+                                           .Include(x => x.IdProntuarioNavigation.IdUsuarioNavigation)
+                                           .Include(x => x.IdMedicoNavigation)
+                                           .Include(x => x.IdMedicoNavigation.IdUsuarioNavigation)
+                                           .Include(x => x.IdMedicoNavigation.IdEspecialidadeNavigation)
+                                           .Where(x => x.IdMedico == medico.Id).ToList();
             }
         }
 
@@ -76,7 +82,13 @@ namespace SP_Medical_group.WebApi.Repositores
         {
             using (SpMedGroupContext ctx = new SpMedGroupContext())
             {
-                return ctx.Consulta.ToList();
+                return ctx.Consulta.Include(x => x.IdTipoSituacaoNavigation)
+                                           .Include(x => x.IdProntuarioNavigation)
+                                           .Include(x => x.IdProntuarioNavigation.IdUsuarioNavigation)
+                                           .Include(x => x.IdMedicoNavigation)
+                                           .Include(x => x.IdMedicoNavigation.IdUsuarioNavigation)
+                                           .Include(x => x.IdMedicoNavigation.IdEspecialidadeNavigation)
+                                           .ToList();
             }
         }
 
