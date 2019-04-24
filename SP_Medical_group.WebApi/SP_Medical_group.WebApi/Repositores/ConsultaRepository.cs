@@ -83,11 +83,11 @@ namespace SP_Medical_group.WebApi.Repositores
             using (SpMedGroupContext ctx = new SpMedGroupContext())
             {
                 return ctx.Consulta.Include(x => x.IdTipoSituacaoNavigation)
-                                           .Include(x => x.IdProntuarioNavigation)
+                                           //.Include(x => x.IdProntuarioNavigation)
                                            .Include(x => x.IdProntuarioNavigation.IdUsuarioNavigation)
-                                           .Include(x => x.IdMedicoNavigation)
+                                           //.Include(x => x.IdMedicoNavigation)
                                            .Include(x => x.IdMedicoNavigation.IdUsuarioNavigation)
-                                           .Include(x => x.IdMedicoNavigation.IdEspecialidadeNavigation)
+                                           //.Include(x => x.IdMedicoNavigation.IdEspecialidadeNavigation)
                                            .ToList();
             }
         }

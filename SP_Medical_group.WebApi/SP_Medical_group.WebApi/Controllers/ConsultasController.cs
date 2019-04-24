@@ -25,7 +25,7 @@ namespace SP_Medical_group.WebApi.Controllers
             ConsultaRepository = new ConsultaRepository();
         }
 
-        [Authorize(Roles = "Adiministrador")]
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         public IActionResult Post(Consulta consulta)
         {
@@ -39,7 +39,7 @@ namespace SP_Medical_group.WebApi.Controllers
             }
         }
 
-        [Authorize(Roles = "Adiministrador,Médico")]
+        [Authorize(Roles = "Administrador,Médico")]
         [HttpPut]
         public IActionResult Put(Consulta consulta)
         {
@@ -110,10 +110,10 @@ namespace SP_Medical_group.WebApi.Controllers
         //    }
         //}
 
-        //[Authorize(Roles = "Adiministrador")]
-        //[Route("Adiministrador")]
+        //[Authorize(Roles = "Administrador")]
+        //[Route("Administrador")]
         //[HttpGet]
-        //public IActionResult AdiministradorGet()
+        //public IActionResult AdministradorGet()
         //{
 //            try
 //            {

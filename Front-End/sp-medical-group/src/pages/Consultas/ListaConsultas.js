@@ -5,7 +5,6 @@ import Navegador from '../../components/Cabecalho/Navegador';
 import jwt_decode from 'jwt-decode';
 
 var decode;
-const that = this;
 
 class ListaConsultas extends Component{
     constructor(event){
@@ -13,14 +12,15 @@ class ListaConsultas extends Component{
 
         this.state = {
             lista : []
+            ,descricao : ""
         }
     }
 
     BuscarConsultas(){
         axios.get('http://localhost:5000/api/Consultas',{
             headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem('SpMedicalGroup-chave-autenticacao'),
-                'Content-Type': 'application/json'
+                'Authorization': 'Bearer ' + localStorage.getItem('SpMedicalGroup-chave-autenticacao')
+                ,'Content-Type': 'application/json'
             }
         })
             .then(res => {
@@ -33,6 +33,7 @@ class ListaConsultas extends Component{
     componentDidMount(){
         this.BuscarConsultas()
         this.atualizarToken()
+        console.log(decode.tipoUsuario)
     }
 
     atualizarToken(){
@@ -42,12 +43,51 @@ class ListaConsultas extends Component{
         }
     }
 
-    atualizaConsulta(){
-        alert("btn de atualizar funcionando");
+    alteraStatusConsulta(event){
+        event.preventDefault()
+
+        console.log(event.target.name + " -- "+ event.target.value)
+
+
+
+        let consulta = {
+            Id: event.target.name
+            ,IdTipoSituacao: 0
+        }
+
+        if(event.target.value === "Realizada"){
+            consulta.situacao = 2
+        }
+
+        if(event.target.value === "Cancelada"){
+            consulta.situacao = 1
+        }
+
+        axios.put('http://localhost:5000/api/Consultas', consulta, {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('SpMedicalGroup-chave-autenticacao'),
+                'Content-Type': 'application/json'
+            }
+            })
+                .then(res => {
+                    console.log(res)
+                })
+    }
+
+    cancelaConsulta(){
+        alert("Consulta foi cancelada")
+    }
+
+    adicionarDescricao(){
+        alert("adicionar Descrição");
     }
 
     render(){
+
+        let that = this;
+
         return (
+            
             <div className="ListConsulta__">    
     
             <Navegador />
@@ -101,12 +141,19 @@ class ListaConsultas extends Component{
                                     {consultalist.descricao}</div>
 
                                     {
-                                        decode.tipoUsuario === "Administrador" ? 
-                                        (<button onClick={() => this.atualizaConsulta()
-                                            // {let testAlert = consultalist.id
-                                            // alert(testAlert)}
-                                         } >Nao click</button>) : 
-                                        <div></div> 
+                                        decode.tipoUsuario === "Administrador" ?
+                                        (<div>
+                                            <input type="button" onClick={that.alteraStatusConsulta.bind(this)} name={consultalist.id} value="Realizada" />
+                                            <input type="button" onClick={that.alteraStatusConsulta.bind(this)} name={consultalist.id} value="Cancelada" />
+                                        </div>) :
+                                        ""
+                                    }
+
+
+                                    {
+                                        decode.tipoUsuario === "Médico" ?
+                                        (<input type="button" onClick={that.adicionarDescricao.bind(this)} value="Adicionar descrição" />) :
+                                        ""
                                     }
 
                             </main>
