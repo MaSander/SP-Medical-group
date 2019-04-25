@@ -1,4 +1,5 @@
 ﻿using SP_Medical_group.WebApi.Domains;
+using SP_Medical_group.WebApi.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,10 +15,10 @@ namespace SP_Medical_group.WebApi.Interfaces
 
         Consulta BuscarPorId(int id);
 
-        List<Consulta> ConsultasPacientes(int usuarioId);
+        IEnumerable<ConsultaViewModel> ConsultasPacientes(int usuarioId);
 
-        List<Consulta> ConsultasMedicos(int usuarioId);
+        IEnumerable<ConsultaViewModel> ConsultasMedicos(int usuarioId);
 
-        List<Consulta> Consultas();
+        IEnumerable<ConsultaViewModel> Consultas();
     }
 }

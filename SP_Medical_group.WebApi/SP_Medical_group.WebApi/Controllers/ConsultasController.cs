@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using SP_Medical_group.WebApi.Domains;
 using SP_Medical_group.WebApi.Interfaces;
 using SP_Medical_group.WebApi.Repositores;
+using SP_Medical_group.WebApi.ViewModel;
 
 namespace SP_Medical_group.WebApi.Controllers
 {
@@ -125,7 +126,7 @@ namespace SP_Medical_group.WebApi.Controllers
 //}
 //}
 
-[Authorize]
+        [Authorize]
         //[Route("Usuario")]
         [HttpGet]
         public IActionResult Get()
@@ -159,7 +160,8 @@ namespace SP_Medical_group.WebApi.Controllers
             {
                 try
                 {
-                    return Ok(ConsultaRepository.Consultas());
+                    var listaConsultas = ConsultaRepository.Consultas().ToList();
+                    return Ok(listaConsultas);
                 }
                 catch (Exception ex)
                 {

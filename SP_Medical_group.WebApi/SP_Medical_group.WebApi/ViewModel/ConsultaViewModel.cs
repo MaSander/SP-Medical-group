@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 
 namespace SP_Medical_group.WebApi.ViewModel
 {
-    public class ConsultaAdmViewModel
+    public class ConsultaViewModel
     {
         public int IdConsulta { get; set; }
+
+        public string Descricao { get; set; }
 
         public DateTime DataConsulta { get; set; }
 

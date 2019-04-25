@@ -23,7 +23,8 @@ class Login extends Component {
         })
             .then(data => {
                 localStorage.setItem("SpMedicalGroup-chave-autenticacao", data.data.token);
-                this.props.history.push("/Listaconsultas")
+                this.props.history.push("/")
+                // Listaconsultas
             })
             .catch(erro => { console.log(erro)});
     }
