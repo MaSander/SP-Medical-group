@@ -23,7 +23,7 @@ namespace SP_Medical_group.WebApi.Controllers
             ProntuarioRepository = new ProntuarioRepository();
         }
 
-        [Authorize(Roles = "Adiministrador")]
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         public IActionResult Post(Prontuarios prontuario)
         {
@@ -38,7 +38,7 @@ namespace SP_Medical_group.WebApi.Controllers
             }
         }
 
-        [Authorize(Roles = "Adiministrador")]
+        [Authorize(Roles = "Administrador")]
         [HttpGet]
         public IActionResult Get()
         {

@@ -41,9 +41,9 @@ class App extends Component {
         </header>
 
         <main>
-          <div className="Sobre">
+          <div className="Home__Sobre">
             <div className="barra"></div>
-            <div><h2>Sobre</h2>
+            <div className="Home__sobre_cont"><h2>Sobre</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Quia harum nesciunt amet consectetur,
                   optio ducimus. Quisquam at, corporis saepe error illum,

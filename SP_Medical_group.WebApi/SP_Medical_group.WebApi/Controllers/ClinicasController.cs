@@ -23,7 +23,7 @@ namespace SP_Medical_group.WebApi.Controllers
             ClinicaRepository = new ClinicaRepository();
         }
 
-        [Authorize(Roles = "Adiministrador")]
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         public IActionResult Post(Clinicas clinica)
         {
@@ -40,7 +40,7 @@ namespace SP_Medical_group.WebApi.Controllers
             }
         }
 
-        [Authorize(Roles = "Adiministrador")]
+        [Authorize(Roles = "Administrador")]
         [HttpPut]
         public IActionResult Put(Clinicas clinica)
         {

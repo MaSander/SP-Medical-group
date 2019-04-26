@@ -23,7 +23,7 @@ namespace SP_Medical_group.WebApi.Controllers
             MedicoRepository = new MedicoRepository();
         }
 
-        [Authorize(Roles = "Adiministrador")]
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         public IActionResult Post(Medicos medicos)
         {

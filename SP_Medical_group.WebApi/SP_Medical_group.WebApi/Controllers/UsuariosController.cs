@@ -26,7 +26,7 @@ namespace SP_Medical_group.WebApi.Controllers
             UsuarioRepository = new UsuarioRepository();
         }
 
-        [Authorize(Roles = "Adiministrador")]
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         public IActionResult Cadastrar(Usuarios usuario)
         {

@@ -43,7 +43,7 @@ class Login extends Component {
             <main className="main__login">
                 <span className="btnInicio"><a href="/">inicio</a></span>
 
-                <div className="Formulario">
+                <div className="login__Formulario">
                     <div className="Cabecalho">
                         <div id="Logo">
                             {/* <img id="Logotipo" src="imgs/icon-login.png" alt="logo da sp medical group" /> */}

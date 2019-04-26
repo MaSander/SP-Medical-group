@@ -111,29 +111,29 @@ class ListaConsultas extends Component{
             {
                 this.state.lista.map(function (consultalist){
                     return(
-                        <div key={consultalist.id} className="ListConsulta__Consultas">
+                        <div key={consultalist.idConsulta} className="ListConsulta__Consultas">
                             <header className="ListConsulta__FormTop">
                                 <div className="ListConsulta__Data">
-                                {consultalist.dataHota}</div>
+                                {consultalist.dataConsulta}</div>
                                 <div className="ListConsulta__Status">
-                                Status : {consultalist.idTipoSituacaoNavigation.nome}
+                                Status : {consultalist.statusConsulta}
                                 </div>
                             </header>
                 
                             <main className="ListConsulta__FormMain">
                                 <div className="ListConsulta__Paciente">
                                     <div className="ListConsulta__NomePaciente">
-                                    {consultalist.idProntuarioNavigation.idUsuarioNavigation.nome}
+                                    {consultalist.nomePaciente}
                                     </div>
                                     <div className="ListConsulta__DataNascimento">
-                                    {consultalist.idProntuarioNavigation.dtNascimento}
+                                    {consultalist.dtNascimentoPaciente}
                                     </div>
                                 </div>
                 
                                 <div className="ListConsulta__Medico">
-                                    <div className="ListConsulta__NomeMedico">{consultalist.idMedicoNavigation.idUsuarioNavigation.nome}</div>
+                                    <div className="ListConsulta__NomeMedico">{consultalist.nomeMedico}</div>
                                     <div className="ListConsulta__Especialidade">
-                                    {consultalist.idMedicoNavigation.idEspecialidadeNavigation.nome}
+                                    {consultalist.especialidade}
                                     </div>
                                 </div>
                 

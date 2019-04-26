@@ -25,3 +25,4 @@ C:\Users\51755101856\Desktop\SP-Medical-group\SP_Medical_group.WebApi\SP_Medical
 C:\Users\51755101856\Desktop\SP-Medical-group\SP_Medical_group.WebApi\SP_Medical_group.WebApi\obj\Debug\netcoreapp2.1\SP_Medical_group.WebApi.RazorTargetAssemblyInfo.cache
 C:\Users\51755101856\Desktop\SP-Medical-group\SP_Medical_group.WebApi\SP_Medical_group.WebApi\obj\Debug\netcoreapp2.1\SP_Medical_group.WebApi.dll
 C:\Users\51755101856\Desktop\SP-Medical-group\SP_Medical_group.WebApi\SP_Medical_group.WebApi\obj\Debug\netcoreapp2.1\SP_Medical_group.WebApi.pdb
+C:\Users\51755101856\Desktop\SP-Medical-group\SP_Medical_group.WebApi\SP_Medical_group.WebApi\obj\Debug\netcoreapp2.1\SP_Medical_group.WebApi.csprojAssemblyReference.cache
