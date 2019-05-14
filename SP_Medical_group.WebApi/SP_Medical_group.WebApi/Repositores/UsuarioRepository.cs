@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SP_Medical_group.WebApi.Repositores
 {
-    public class UsuarioRepository : IUsuarioRepository
+    public class UsuarioRepository : IUsuarioRepository 
     {
         public Usuarios BuscarPorEmailSenha(string email, string senha)
         {
