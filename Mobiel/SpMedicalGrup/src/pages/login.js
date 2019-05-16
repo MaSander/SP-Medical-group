@@ -52,7 +52,7 @@ class Login extends Component {
         <TextInput
           style={styles.inputLogin}
           placeholder="email"
-          defaultValue="Adm@email.com"
+          defaultValue="roberto.possarle1@spmedicalgroup.com.br"
           placeholderTextColor="#FFFFFF"
           underlineColorAndroid="#FFFFFF"
           onChangeText={email => this.setState({ email })}
@@ -61,7 +61,7 @@ class Login extends Component {
         <TextInput
           style={styles.inputLogin}
           placeholder="senha"
-          defaultValue="adimin123"
+          defaultValue="b321"
           placeholderTextColor="#FFFFFF"
           password="true"
           underlineColorAndroid="#FFFFFF"

@@ -29,14 +29,10 @@ class Consultas extends Component {
             const value = await auth.getItem('spmedg-token');
             if(value !== null){
                 this.setState({ token: value });
-                Alert.alert("ta rodando ate aqui");
-                Alert.alert( value );
                 this.carregarConsulta();
             }
         }
         catch{
-            // Alert.alert('aqui e que vai da merda')
-            // Alert.alert(this.state.token)
             (error)
         }
     }
@@ -54,7 +50,7 @@ class Consultas extends Component {
     render() {
         return (
             <View>
-                <Text>Pagina de consultas</Text>
+                <Text style={styles.headers}>Pagina de consultas</Text>
                 <FlatList
                     data = {this.state.lista}
                     keyExtractor = {item => item.idConsulta}
@@ -65,13 +61,26 @@ class Consultas extends Component {
     }
 
     renderizaItem = ({item}) =>(
-        <View>
-        <Text>{item.dataConsulta}</Text>
-        <Text>{item.statusConsulta}</Text>
-        <Text>{item.nomePaciente}</Text>
-        <Text>{item.especialidade}</Text>
+        <View style={styles.consultas}>
+            <Text>{item.dataConsulta}</Text>
+            <Text>{item.statusConsulta}</Text>
+            <Text>{item.nomePaciente}</Text>
+            <Text>{item.dtNascimentoPaciente}</Text>
+            <Text>{item.nomeMedico}</Text>
+            <Text>{item.especialidade}</Text>
+            <Text>{item.descricao}</Text>
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    headers: {
+        color: '#FE0006'
+    }
+    ,consultas: {
+        padding: 10,
+        backgroundColor: "#1D00BE"
+    }
+})
 
 export default Consultas
