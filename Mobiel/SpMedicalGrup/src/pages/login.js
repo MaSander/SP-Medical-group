@@ -1,68 +1,79 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
-    StyleSheet,
-    View,
-    Text,
-    Image,
-    ImageBackground,
-    Alert,
-    TextInput,
-    TouchableOpacity,
-    AsyncStorage
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  ImageBackground,
+  Alert,
+  TextInput,
+  TouchableOpacity,
+  AsyncStorage
 } from 'react-native'
 
 import api from '../services/api';
+import auth from '../services/auth';
 
 class Login extends Component {
-    constructor(props){
-        super(props)
+  constructor(props) {
+    super(props)
 
-        this.state = {
-            email: ''
-            ,senha: ''
-        }
+    this.state = {
+      email: ''
+      , senha: ''
     }
 
-    realizarLogin = async () =>{
-        const resposta = await api.post('/login', {
-            email: this.state.email
-            ,senha: this.state.senha
-        });
+    // this.showDetails = this.showDetails.bind(this)
+  }
+
+  realizarLogin = async () => {
+
+    await api.post('/login', {
+      email: this.state.email
+      , senha: this.state.senha
+    })
+      .then(resposta => {
 
         const token = resposta.data.token;
-        await AsyncStorage.setItem('usertoken', token);
+        auth.setItem(token);
+        
         // Alert.alert(token);
-        this.props.navigation.navigate("MainNavigator");
-        Alert.alert("aqui ainda ta indo");
-    }
+        
+        this.props.navigation.navigate("Consultas")
+        
+        // Alert.alert("aqui ainda ta indo");
+      });
+  }
 
-    render(){
-        return(
-            <View style={styles.main}>
-            <View style={styles.overlay} />
-          <TextInput
-            style={styles.inputLogin}
-            placeholder="email"
-            placeholderTextColor="#FFFFFF"
-            underlineColorAndroid="#FFFFFF"
-            onChangeText={email => this.setState({ email })}
-          />
+  render() {
+    return (
+      <View style={styles.main}>
+        <View style={styles.overlay} />
+        <TextInput
+          style={styles.inputLogin}
+          placeholder="email"
+          defaultValue="Adm@email.com"
+          placeholderTextColor="#FFFFFF"
+          underlineColorAndroid="#FFFFFF"
+          onChangeText={email => this.setState({ email })}
+        />
 
-          <TextInput
-            style={styles.inputLogin}
-            placeholder="senha"
-            placeholderTextColor="#FFFFFF"
-            password="true"
-            underlineColorAndroid="#FFFFFF"
-            onChangeText={senha => this.setState({ senha })}
-          />
-          <TouchableOpacity
-            style={styles.btnLogin}
-            onPress={this.realizarLogin}
-          >
-            <Text style={styles.btnLoginText}>LOGIN</Text>
-          </TouchableOpacity>
-        </View>
+        <TextInput
+          style={styles.inputLogin}
+          placeholder="senha"
+          defaultValue="adimin123"
+          placeholderTextColor="#FFFFFF"
+          password="true"
+          underlineColorAndroid="#FFFFFF"
+          onChangeText={senha => this.setState({ senha })}
+        />
+        <TouchableOpacity
+          style={styles.btnLogin}
+          onPress={this.realizarLogin}
+        >
+          <Text style={styles.btnLoginText}>LOGIN</Text>
+        </TouchableOpacity>
+      </View>
     );
   }
 }
@@ -118,3 +129,9 @@ export default Login
 
 // Adm@email.com
 // adimin123
+
+//ligia@gmail.com
+//senha1
+
+//fernando@gmail.com
+//senha3

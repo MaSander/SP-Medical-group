@@ -77,57 +77,7 @@ namespace SP_Medical_group.WebApi.Controllers
             }
         }
 
-        //[Authorize(Roles = "Paciente")]
-        //[Route("Paciente")]
-        //[HttpGet("Paciente")]
-        //public IActionResult Paciente()
-        //{
-        //    try
-        //    {
-        //        int usuarioId = Convert.ToInt32(HttpContext.User.Claims.First(x => x.Type == JwtRegisteredClaimNames.Jti).Value);
-
-        //        return Ok(ConsultaRepository.ConsultasPacientes(usuarioId));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return BadRequest(ex);
-
-        //    }
-        //}
-
-        //[Authorize(Roles = "Médico")]
-        //[Route("Medico")]
-        //[HttpGet("Medico")]
-        //public IActionResult Medico()
-        //{
-        //    try
-        //    {
-        //        int usuarioId = Convert.ToInt32(HttpContext.User.Claims.First(x => x.Type == JwtRegisteredClaimNames.Jti).Value);
-        //        return Ok(ConsultaRepository.ConsultasMedicos(usuarioId));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return BadRequest(ex);
-        //    }
-        //}
-
-        //[Authorize(Roles = "Administrador")]
-        //[Route("Administrador")]
-        //[HttpGet]
-        //public IActionResult AdministradorGet()
-        //{
-//            try
-//            {
-//                return Ok(ConsultaRepository.Consultas());
-//    }
-//            catch (Exception ex)
-//            {
-//                return BadRequest(ex);
-//}
-//}
-
         [Authorize]
-        //[Route("Usuario")]
         [HttpGet]
         public IActionResult Get()
         {

@@ -50,9 +50,16 @@ namespace SP_Medical_group.WebApi.Repositores
 
             using (SpMedGroupContext ctx = new SpMedGroupContext())
             {
-                List<Consulta> consultas = ctx.Consulta.Where(x => x.IdProntuario == prontuario.Id).ToList();
+                //List<Consulta> consultas = ctx.Consulta.Where(x => x.IdProntuario == prontuario.Id).ToList();
 
-                return (from ev in consultas
+                var lista = ctx.Consulta.Where(x => x.IdProntuario == prontuario.Id)
+                        .Include(x => x.IdProntuarioNavigation.IdUsuarioNavigation)
+                        .Include(x => x.IdTipoSituacaoNavigation)
+                        .Include(x => x.IdProntuarioNavigation)
+                        .Include(x => x.IdMedicoNavigation.IdUsuarioNavigation)
+                        .Include(x => x.IdMedicoNavigation.IdEspecialidadeNavigation).ToList();
+
+                return (from ev in lista
                         select new ConsultaViewModel()
                         {
                             IdConsulta = ev.Id
@@ -96,9 +103,16 @@ namespace SP_Medical_group.WebApi.Repositores
             using (SpMedGroupContext ctx = new SpMedGroupContext())
             {
 
-                List<Consulta> consultas = ctx.Consulta.Where(x => x.IdMedico == medico.Id).ToList();
+                //List<Consulta> consultas = ctx.Consulta.Where(x => x.IdMedico == medico.Id).ToList();
 
-                return (from ev in consultas
+                var lista = ctx.Consulta.Where(x => x.IdMedico == medico.Id)
+                        .Include(x => x.IdProntuarioNavigation.IdUsuarioNavigation)
+                        .Include(x => x.IdTipoSituacaoNavigation)
+                        .Include(x => x.IdProntuarioNavigation)
+                        .Include(x => x.IdMedicoNavigation.IdUsuarioNavigation)
+                        .Include(x => x.IdMedicoNavigation.IdEspecialidadeNavigation).ToList();
+
+                return (from ev in lista
                         select new ConsultaViewModel()
                         {
                             IdConsulta = ev.Id
@@ -126,13 +140,6 @@ namespace SP_Medical_group.WebApi.Repositores
         {
             using (SpMedGroupContext ctx = new SpMedGroupContext())
             {
-                List<Consulta> consultas = ctx.Consulta.ToList();
-
-                //ctx.Consulta.               Include(x => x.IdProntuarioNavigation.IdUsuarioNavigation.Nome)
-                //                           .Include(x => x.IdTipoSituacaoNavigation.Nome)
-                //                           .Include(x => x.IdProntuarioNavigation.DtNascimento)
-                //                           .Include(x => x.IdMedicoNavigation.IdUsuarioNavigation.Nome)
-                //                           .Include(x => x.IdMedicoNavigation.IdEspecialidadeNavigation.Nome)
 
                 var lista = ctx.Consulta.Include(x => x.IdProntuarioNavigation.IdUsuarioNavigation)
                         .Include(x => x.IdTipoSituacaoNavigation)
@@ -155,33 +162,5 @@ namespace SP_Medical_group.WebApi.Repositores
 
             }
         }
-
-        //public List<ConsultaViewModel> TransformaEmConsultaViewModel(List<Consulta> consultas)
-        //{
-        //    List<ConsultaViewModel> consultasViewModel = new List<ConsultaViewModel>();
-
-        //    foreach (Consulta consult in consultas)
-        //    {
-        //        ConsultaViewModel consultaViewModel = new ConsultaViewModel()
-        //        {
-        //            IdConsulta = consult.Id
-        //            ,
-        //            Descricao = consult.Descricao
-        //            ,
-        //            statusConsulta = consult.IdTipoSituacaoNavigation.Nome
-        //            ,
-        //            DtNascimentoPaciente = consult.IdProntuarioNavigation.DtNascimento
-        //            ,
-        //            NomePaciente = consult.IdProntuarioNavigation.IdUsuarioNavigation.Nome
-        //            ,
-        //            NomeMedico = consult.IdMedicoNavigation.IdUsuarioNavigation.Nome
-        //            ,
-        //            Especialidade = consult.IdMedicoNavigation.IdEspecialidadeNavigation.Nome
-        //        };
-        //    }
-
-        //    return consultasViewModel;
-        //}
-
     }
 }

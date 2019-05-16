@@ -14,7 +14,7 @@ class Main extends Component {
 
     render(){
         return(
-            <View>Pagina Main</View>
+            <Text>Pagina Main</Text>
         )
     }
 }

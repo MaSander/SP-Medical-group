@@ -3,7 +3,7 @@
  */
 
 import {AppRegistry} from 'react-native';
-import Page from './src/pages/login';
+import Navigator from './src/';
 import {name as appName} from './app.json';
 
-AppRegistry.registerComponent(appName, () => Page);
+AppRegistry.registerComponent(appName, () => Navigator);

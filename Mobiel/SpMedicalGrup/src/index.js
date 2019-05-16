@@ -13,24 +13,25 @@ const AuthStack = createStackNavigator ({ Login });
 
 const MainNavigator = createBottomTabNavigator (
     {
+        Login,
         Main,
         Consultas
     },
-    {
-        initialRouteName: "Main",
-        swipeEnabled: true,
-        tabBarOptions: {
-            showLabel: false,
-            showIcon: true,
-            inactiveBackgroundColor: "#dd99ff",
-            activeBackgroundColor: "#B727FF",
-            activeTintColor: "#FFFFFF",
-            inactiveTintColor: "#FFFFFF",
-            style: {
-                height: 50
-            }
-        }
-    }
+    // {
+    //     initialRouteName: "Consultas",
+    //     swipeEnabled: true,
+    //     tabBarOptions: {
+    //         showLabel: false,
+    //         showIcon: true,
+    //         inactiveBackgroundColor: "#dd99ff",
+    //         activeBackgroundColor: "#B727FF",
+    //         activeTintColor: "#FFFFFF",
+    //         inactiveTintColor: "#FFFFFF",
+    //         style: {
+    //             height: 50
+    //         }
+    //     }
+    // }
 );
 
 export default createAppContainer(
