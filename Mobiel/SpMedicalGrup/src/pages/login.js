@@ -81,7 +81,7 @@ class Login extends Component {
 const styles = StyleSheet.create({
   overlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: "#81DF99"
+    backgroundColor: "#83BFDF"
   },
   main: {
     width: "100%",
@@ -106,8 +106,8 @@ const styles = StyleSheet.create({
     width: 240,
     borderRadius: 4,
     borderWidth: 1,
-    borderColor: "#FFFFFF",
-    backgroundColor: "#FFFFFF",
+    borderColor: "#81DF99",
+    backgroundColor: "#81DF99",
     justifyContent: "center",
     alignItems: "center",
     marginTop: 10
@@ -115,17 +115,21 @@ const styles = StyleSheet.create({
   btnLoginText: {
     fontSize: 10,
     fontFamily: "OpenSans-Light",
-    color: "#B727FF",
+    color: "black",
     letterSpacing: 4
   },
   inputLogin: {
     width: 240,
     marginBottom: 10,
     fontSize: 10
+    ,borderBottomColor: 'black'
   }
 });
 
 export default Login
+
+//#81df99 -- verde
+//#83bedf -- azul
 
 // Adm@email.com
 // adimin123
