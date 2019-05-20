@@ -3,6 +3,7 @@ import {
     StyleSheet,
     View,
     Text,
+    TouchableOpacity,
     Alert
 } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
@@ -54,10 +55,24 @@ class Consultas extends Component {
         this.setState({ lista : dadosDaApi })
     }
 
+    
+    deslogar = async () =>{
+        await auth.removeItem('spmedg-token');
+
+        this.props.navigation.navigate("Login");
+    }
+
     render() {
         return (
             <View>
-                <Text style={styles.headers}>Consultas</Text>
+                <View style={styles.headers}>
+                    <Text >Consultas</Text>
+                    <TouchableOpacity
+                        onPress={this.deslogar}
+                    >
+                        <Text style={{fontWeight: 'bold'}} style={styles.btnDeSair}>Sair</Text>
+                    </TouchableOpacity>
+                </View>
                 <FlatList
                     data = {this.state.lista}
                     keyExtractor = {item => item.idConsulta}
@@ -70,6 +85,25 @@ class Consultas extends Component {
     renderizaItem = ({item}) =>(
         this.state.usuario === 'Paciente' ?
         <View style={styles.consultas}>
+
+                {item.statusConsulta === 'Realizada' ?
+                    <View style={styles.displayStatus}>
+                        <Text>{item.statusConsulta}</Text>
+                        <View style={styles.barraDeStatusRealizada}></View>
+                    </View>
+                    : (item.statusConsulta === 'Cancelada' ?
+                    <View style={styles.displayStatus}>
+                        <Text>{item.statusConsulta}</Text>
+                        <View style={styles.barraDeStatusCancelada}></View>
+                    </View>
+                    :
+                    <View style={styles.displayStatus}>
+                        <Text>{item.statusConsulta}</Text>
+                        <View style={styles.barraDeStatusAgendada}></View>
+                    </View>
+                    ) 
+                }
+
             <Text>Data: {item.dataConsulta}</Text>
             <Text>Status: {item.statusConsulta}</Text>
             <Text>Médico: {item.nomeMedico}</Text>
@@ -77,8 +111,27 @@ class Consultas extends Component {
             <Text>Obs: {item.descricao}</Text>
         </View> 
         :
-        ( this.state.usuario === 'Médico' ?  
+        ( this.state.usuario === 'Médico' ?
         <View style={styles.consultas}>
+
+                {item.statusConsulta === 'Realizada' ?
+                    <View style={styles.displayStatus}>
+                        <Text>{item.statusConsulta}</Text>
+                        <View style={styles.barraDeStatusRealizada}></View>
+                    </View>
+                    : (item.statusConsulta === 'Cancelada' ?
+                    <View style={styles.displayStatus}>
+                        <Text>{item.statusConsulta}</Text>
+                        <View style={styles.barraDeStatusCancelada}></View>
+                    </View>
+                    :
+                    <View style={styles.displayStatus}>
+                        <Text>{item.statusConsulta}</Text>
+                        <View style={styles.barraDeStatusAgendada}></View>
+                    </View>
+                    ) 
+                }
+
             <Text>Data: {item.dataConsulta}</Text>
             <Text>Status: {item.statusConsulta}</Text>
             <Text>Paciente: {item.nomePaciente}</Text>
@@ -88,13 +141,33 @@ class Consultas extends Component {
             :
             (this.state.usuario === 'Administrador' ? 
                 <View style={styles.consultas}>
-                    <Text>Data: {item.dataConsulta}</Text>
-                    <Text>Status: {item.statusConsulta}</Text>
-                    <Text>Paciente: {item.nomePaciente}</Text>
-                    <Text>Nascimento: {item.dtNascimentoPaciente}</Text>
-                    <Text>Médico: {item.nomeMedico}</Text>
-                    <Text>especialidade: {item.especialidade}</Text>
-                    <Text>Obs: {item.descricao}</Text>
+
+                    {item.statusConsulta === 'Realizada' ?
+                    <View style={styles.displayStatus}>
+                        <Text>{item.statusConsulta}</Text>
+                        <View style={styles.barraDeStatusRealizada}></View>
+                    </View>
+                    : (item.statusConsulta === 'Cancelada' ?
+                    <View style={styles.displayStatus}>
+                        <Text>{item.statusConsulta}</Text>
+                        <View style={styles.barraDeStatusCancelada}></View>
+                    </View>
+                    :
+                    <View style={styles.displayStatus}>
+                        <Text>{item.statusConsulta}</Text>
+                        <View style={styles.barraDeStatusAgendada}></View>
+                    </View>
+                    ) 
+                }
+
+                    <View>
+                        <Text>Data: {item.dataConsulta}</Text>
+                        <Text>Paciente: {item.nomePaciente}</Text>
+                        <Text>Nascimento: {item.dtNascimentoPaciente}</Text>
+                        <Text>Médico: {item.nomeMedico}</Text>
+                        <Text>especialidade: {item.especialidade}</Text>
+                        <Text>Obs: {item.descricao}</Text>
+                    </View>
                 </View>
             : 
             <Text>Erro</Text>
@@ -104,12 +177,29 @@ class Consultas extends Component {
 }
 
 const styles = StyleSheet.create({
-    headers: {
+    displayStatus:{
+        flexDirection: 'row-reverse',
+        alignItems: 'center'
+    }
+    ,headers: {
         color: 'black'
         ,width: '100%'
-        ,display: 'flex'
-        ,padding: 8
+        ,flexDirection: 'row'
+        ,justifyContent: 'space-between'
+        ,alignItems: 'center'
+        ,height: 36
+        ,paddingLeft: 50
         ,backgroundColor: '#81df99'
+        // ,position: 'absolute'
+        // ,zIndex: 100
+    }
+    ,btnDeSair: {
+        backgroundColor: '#e3e3e3'
+        ,height: '100%'
+        ,width: 40
+        ,textAlign: 'center'
+        ,borderBottomLeftRadius: 10
+
     }
     ,consultas: {
         padding: 10,
@@ -118,6 +208,30 @@ const styles = StyleSheet.create({
         ,marginLeft: '5%'
         ,marginTop: '5%'
         ,fontSize: 12
+        ,borderBottomRightRadius: 20
+        ,borderTopLeftRadius: 20
+        ,color: 'black'
+    }
+    ,barraDeStatusRealizada: {
+        width: 12
+        ,height: 12
+        ,backgroundColor: '#1bc400'
+        ,marginRight: 9
+        ,borderRadius: 10
+    }
+    ,barraDeStatusCancelada: {
+        width: 12
+        ,height: 12
+        ,backgroundColor: '#C74646'
+        ,marginRight: 9
+        ,borderRadius: 10
+    }
+    ,barraDeStatusAgendada: {
+        width: 12
+        ,height: 12
+        ,backgroundColor: '#fff335'
+        ,marginRight: 9
+        ,borderRadius: 10
     }
 })
 

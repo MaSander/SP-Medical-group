@@ -36,13 +36,8 @@ class Login extends Component {
 
         const token = resposta.data.token;
         auth.setItem(token);
-        
-        // Alert.alert(token);
-        
         this.props.navigation.navigate("Consultas")
-        
-        // Alert.alert("aqui ainda ta indo");
-      });
+        });
   }
 
   render() {
@@ -52,7 +47,7 @@ class Login extends Component {
         <TextInput
           style={styles.inputLogin}
           placeholder="email"
-          defaultValue="roberto.possarle1@spmedicalgroup.com.br"
+          // defaultValue="roberto.possarle1@spmedicalgroup.com.br"
           placeholderTextColor="#FFFFFF"
           underlineColorAndroid="#FFFFFF"
           onChangeText={email => this.setState({ email })}
@@ -61,7 +56,7 @@ class Login extends Component {
         <TextInput
           style={styles.inputLogin}
           placeholder="senha"
-          defaultValue="b321"
+          // defaultValue="b321"
           placeholderTextColor="#FFFFFF"
           password="true"
           underlineColorAndroid="#FFFFFF"
