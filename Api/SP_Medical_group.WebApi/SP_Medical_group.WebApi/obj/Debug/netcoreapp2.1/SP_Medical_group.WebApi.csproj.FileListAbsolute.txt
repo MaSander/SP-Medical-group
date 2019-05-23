@@ -26,3 +26,17 @@ C:\Users\51755101856\Desktop\SP-Medical-group\SP_Medical_group.WebApi\SP_Medical
 C:\Users\51755101856\Desktop\SP-Medical-group\SP_Medical_group.WebApi\SP_Medical_group.WebApi\obj\Debug\netcoreapp2.1\SP_Medical_group.WebApi.dll
 C:\Users\51755101856\Desktop\SP-Medical-group\SP_Medical_group.WebApi\SP_Medical_group.WebApi\obj\Debug\netcoreapp2.1\SP_Medical_group.WebApi.pdb
 C:\Users\51755101856\Desktop\SP-Medical-group\SP_Medical_group.WebApi\SP_Medical_group.WebApi\obj\Debug\netcoreapp2.1\SP_Medical_group.WebApi.csprojAssemblyReference.cache
+C:\Users\51755101856\Desktop\SP-Medical-group\Api\SP_Medical_group.WebApi\SP_Medical_group.WebApi\bin\Debug\netcoreapp2.1\SP_Medical_group.WebApi.deps.json
+C:\Users\51755101856\Desktop\SP-Medical-group\Api\SP_Medical_group.WebApi\SP_Medical_group.WebApi\bin\Debug\netcoreapp2.1\SP_Medical_group.WebApi.runtimeconfig.json
+C:\Users\51755101856\Desktop\SP-Medical-group\Api\SP_Medical_group.WebApi\SP_Medical_group.WebApi\bin\Debug\netcoreapp2.1\SP_Medical_group.WebApi.runtimeconfig.dev.json
+C:\Users\51755101856\Desktop\SP-Medical-group\Api\SP_Medical_group.WebApi\SP_Medical_group.WebApi\bin\Debug\netcoreapp2.1\SP_Medical_group.WebApi.dll
+C:\Users\51755101856\Desktop\SP-Medical-group\Api\SP_Medical_group.WebApi\SP_Medical_group.WebApi\bin\Debug\netcoreapp2.1\SP_Medical_group.WebApi.pdb
+C:\Users\51755101856\Desktop\SP-Medical-group\Api\SP_Medical_group.WebApi\SP_Medical_group.WebApi\obj\Debug\netcoreapp2.1\SP_Medical_group.WebApi.csprojAssemblyReference.cache
+C:\Users\51755101856\Desktop\SP-Medical-group\Api\SP_Medical_group.WebApi\SP_Medical_group.WebApi\obj\Debug\netcoreapp2.1\SP_Medical_group.WebApi.csproj.CoreCompileInputs.cache
+C:\Users\51755101856\Desktop\SP-Medical-group\Api\SP_Medical_group.WebApi\SP_Medical_group.WebApi\obj\Debug\netcoreapp2.1\SP_Medical_group.WebApi.RazorAssemblyInfo.cache
+C:\Users\51755101856\Desktop\SP-Medical-group\Api\SP_Medical_group.WebApi\SP_Medical_group.WebApi\obj\Debug\netcoreapp2.1\SP_Medical_group.WebApi.RazorAssemblyInfo.cs
+C:\Users\51755101856\Desktop\SP-Medical-group\Api\SP_Medical_group.WebApi\SP_Medical_group.WebApi\obj\Debug\netcoreapp2.1\SP_Medical_group.WebApi.AssemblyInfoInputs.cache
+C:\Users\51755101856\Desktop\SP-Medical-group\Api\SP_Medical_group.WebApi\SP_Medical_group.WebApi\obj\Debug\netcoreapp2.1\SP_Medical_group.WebApi.AssemblyInfo.cs
+C:\Users\51755101856\Desktop\SP-Medical-group\Api\SP_Medical_group.WebApi\SP_Medical_group.WebApi\obj\Debug\netcoreapp2.1\SP_Medical_group.WebApi.RazorTargetAssemblyInfo.cache
+C:\Users\51755101856\Desktop\SP-Medical-group\Api\SP_Medical_group.WebApi\SP_Medical_group.WebApi\obj\Debug\netcoreapp2.1\SP_Medical_group.WebApi.dll
+C:\Users\51755101856\Desktop\SP-Medical-group\Api\SP_Medical_group.WebApi\SP_Medical_group.WebApi\obj\Debug\netcoreapp2.1\SP_Medical_group.WebApi.pdb

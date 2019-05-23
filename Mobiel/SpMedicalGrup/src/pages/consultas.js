@@ -4,6 +4,7 @@ import {
     View,
     Text,
     TouchableOpacity,
+    Image,
     Alert
 } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
@@ -105,7 +106,6 @@ class Consultas extends Component {
                 }
 
             <Text>Data: {item.dataConsulta}</Text>
-            <Text>Status: {item.statusConsulta}</Text>
             <Text>Médico: {item.nomeMedico}</Text>
             <Text>especialidade: {item.especialidade}</Text>
             <Text>Obs: {item.descricao}</Text>
@@ -133,7 +133,6 @@ class Consultas extends Component {
                 }
 
             <Text>Data: {item.dataConsulta}</Text>
-            <Text>Status: {item.statusConsulta}</Text>
             <Text>Paciente: {item.nomePaciente}</Text>
             <Text>Nascimento: {item.dtNascimentoPaciente}</Text>
             <Text>Obs: {item.descricao}</Text>
@@ -190,8 +189,6 @@ const styles = StyleSheet.create({
         ,height: 36
         ,paddingLeft: 50
         ,backgroundColor: '#81df99'
-        // ,position: 'absolute'
-        // ,zIndex: 100
     }
     ,btnDeSair: {
         backgroundColor: '#e3e3e3'

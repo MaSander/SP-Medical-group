@@ -12685,11 +12685,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\51755101856\\Desktop\\SP-Medical-group\\SP_Medical_group.WebApi\\SP_Medical_group.WebApi\\SP_Medical_group.WebApi.csproj",
+      "projectUniqueName": "C:\\Users\\51755101856\\Desktop\\SP-Medical-group\\Api\\SP_Medical_group.WebApi\\SP_Medical_group.WebApi\\SP_Medical_group.WebApi.csproj",
       "projectName": "SP_Medical_group.WebApi",
-      "projectPath": "C:\\Users\\51755101856\\Desktop\\SP-Medical-group\\SP_Medical_group.WebApi\\SP_Medical_group.WebApi\\SP_Medical_group.WebApi.csproj",
+      "projectPath": "C:\\Users\\51755101856\\Desktop\\SP-Medical-group\\Api\\SP_Medical_group.WebApi\\SP_Medical_group.WebApi\\SP_Medical_group.WebApi.csproj",
       "packagesPath": "C:\\Users\\51755101856\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\51755101856\\Desktop\\SP-Medical-group\\SP_Medical_group.WebApi\\SP_Medical_group.WebApi\\obj\\",
+      "outputPath": "C:\\Users\\51755101856\\Desktop\\SP-Medical-group\\Api\\SP_Medical_group.WebApi\\SP_Medical_group.WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

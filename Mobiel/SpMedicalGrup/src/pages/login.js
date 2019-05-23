@@ -56,7 +56,7 @@ class Login extends Component {
         <TextInput
           style={styles.inputLogin}
           placeholder="senha"
-          // defaultValue="b321"
+          secureTextEntry={true}
           placeholderTextColor="#FFFFFF"
           password="true"
           underlineColorAndroid="#FFFFFF"
