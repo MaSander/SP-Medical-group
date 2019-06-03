@@ -45,7 +45,7 @@ class CadastroConsultas extends Component {
             ,Descricao: this.state.Descricao
         }
 
-        axios.post('http://localhost:5000/api/Consultas', consulta, {
+        axios.post('http://192.168.3.110:5000/api/Consultas', consulta, {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('SpMedicalGroup-chave-autenticacao'),
                 'Content-Type': 'application/json'

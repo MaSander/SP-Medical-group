@@ -39,9 +39,9 @@ class CadastroUsuario extends Component{
             ,IdTipoUsuario: this.state.tipo
         }
 
-        alert("efetuando cadastro de usuario");
+        // alert("efetuando cadastro de usuario");
 
-        axios.post('http://localhost:5000/api/Usuarios', usuario ,
+        axios.post('http://192.168.3.110:5000/api/Usuarios', usuario ,
         {
         headers:{
             'Authorization': 'Bearer ' + localStorage.getItem('SpMedicalGroup-chave-autenticacao'),
@@ -51,9 +51,9 @@ class CadastroUsuario extends Component{
         .then(data => {
             alert("alerta de dado" + this.state.tipo)
             console.log(data);
-            if(this.state.tipo === 3){
+            if(this.state.tipo == 3){
                 this.props.history.push("/CadastraProntuario")
-            } else if(this.state.tipo === 2){
+            } else if(this.state.tipo == 2){
                 this.props.history.push("/CadastraMedico")
             }
         })

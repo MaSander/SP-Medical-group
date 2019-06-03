@@ -28,7 +28,7 @@ export default class CadastroProntuario extends Component {
             ,listaUsuarios: []
         }
 
-        axios.post('http://localhost:5000/api/Prontuarios', prontuario, {
+        axios.post('http://192.168.3.110:5000/api/Prontuarios', prontuario, {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('SpMedicalGroup-chave-autenticacao'),
                 'Content-Type': 'application/json'
@@ -41,7 +41,7 @@ export default class CadastroProntuario extends Component {
     }
 
     buscaListaUsuario(){
-        axios.get('http://localhost:5000/api/Usuarios/Usuarios')
+        axios.get('http://192.168.3.110:5000/api/Usuarios/Usuarios')
     }
 
     atualizaEstadoUsuario(event){
@@ -83,13 +83,13 @@ export default class CadastroProntuario extends Component {
                     onChange={this.atualizaEstadoUsuario.bind(this)}
                     value={this.state.IdUsuario}
                     >
-                        <option>
+                        {/* <option>
                             {
                                 this.state.listaUsuarios.map((element) =>{
                                     return <option />
                                 })
                             }
-                        </option>
+                        </option> */}
                     </select>
                     
                     <input type="text"

@@ -25,7 +25,7 @@ export default class CadastroMedico extends Component {
             ,Telefone: this.state.Telefone
         }
 
-        axios("http://localhost:5000/api/Medicos", medico, {
+        axios("http://192.168.3.110:5000/api/Medicos", medico, {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('SpMedicalGroup-chave-autenticacao'),
                 'Content-Type': 'application/json'

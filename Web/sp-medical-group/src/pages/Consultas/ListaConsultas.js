@@ -17,7 +17,7 @@ class ListaConsultas extends Component{
     }
 
     BuscarConsultas(){
-        axios.get('http://localhost:5000/api/Consultas',{
+        axios.get('http://192.168.3.110:5000/api/Consultas',{
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('SpMedicalGroup-chave-autenticacao')
                 ,'Content-Type': 'application/json'
@@ -63,7 +63,7 @@ class ListaConsultas extends Component{
             consulta.situacao = 1
         }
 
-        axios.put('http://localhost:5000/api/Consultas', consulta, {
+        axios.put('http://192.168.3.110:5000/api/Consultas', consulta, {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('SpMedicalGroup-chave-autenticacao'),
                 'Content-Type': 'application/json'

@@ -18,7 +18,7 @@ class Login extends Component {
 
         localStorage.setItem("SpMedicalGroup-chave-autenticacao", null)
 
-        axios.post('http://localhost:5000/api/Login', {
+        axios.post('http://192.168.3.110:5000/api/Login', {
             email: this.state.email, senha: this.state.senha
         })
             .then(data => {
