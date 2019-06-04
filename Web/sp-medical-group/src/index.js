@@ -8,6 +8,8 @@ import CadastraUsuario from './pages/Usuarios/CadastroUsuario';
 import CadastraConsultas from './pages/Consultas/CadastroConsultas';
 import CadastraProntuario from './pages/Prontuarios/CadastroProntuario';
 import CadastraMedico from './pages/Medicos/CadastroMedico';
+import CadastraLocalizacao from './pages/Servico/CadastroLocalizacao';
+import ListaLocalizacao from './pages/Servico/ListaLocalizacao';
 import { usuarioAutenticado } from '../src/services/auth'
 
 import {Route, BrowserRouter as Router, Switch, Redirect} from 'react-router-dom';
@@ -33,6 +35,8 @@ const rotas = (
                 <Permissao path='/CadastraConsulta' component={CadastraConsultas} />
                 <Permissao path='/CadastraProntuario' component={CadastraProntuario} />
                 <Permissao path='/CadastraMedico' component={CadastraMedico} />
+                <Permissao path='/CadastraLocalizacao' component={CadastraLocalizacao} />
+                <Permissao path='/ListaLocalizacao' component={ListaLocalizacao} />
             </Switch>
         </div>
     </Router>

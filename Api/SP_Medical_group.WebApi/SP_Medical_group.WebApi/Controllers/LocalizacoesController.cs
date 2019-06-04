@@ -35,5 +35,18 @@ namespace SP_Medical_group.WebApi.Controllers
                 return BadRequest(ex);
             }
         }
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            try
+            {
+                return Ok(LocalizacaoRepository.ListarLocais());
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
     }
 }

@@ -26,7 +26,10 @@ class Login extends Component {
                 this.props.history.push("/")
                 // Listaconsultas
             })
-            .catch(erro => { console.log(erro)});
+            .catch(erro => { 
+            console.log(erro);
+            alert("Usuario Incorreto")
+        });
     }
 
     atualizaEstadoEmail(event) {
