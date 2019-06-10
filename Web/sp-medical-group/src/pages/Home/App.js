@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import '../../assets/css/home.css';
 import Navegador from '../../components/Cabecalho/Navegador'
-// import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300';
-
-// import logo from '../../assets/img/icon-login.png';
+import logo from '../../assets/img/icon-login.png'
 
 class App extends Component {
 
@@ -12,11 +10,10 @@ class App extends Component {
     return (
 
       <div>
-
         <header>
           <section id="Banner" className="Flex-cont">
             <div className="Logo">
-              {/* <img src={logo} alt="logo da Sp Medical Group" /> */}
+              <img id="Logotipo" src={logo} alt="logo da sp medical group" />
             </div>
 
             <div className="Nome Flex-cont">

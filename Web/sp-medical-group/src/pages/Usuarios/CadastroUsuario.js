@@ -39,8 +39,6 @@ class CadastroUsuario extends Component{
             ,IdTipoUsuario: this.state.tipo
         }
 
-        // alert("efetuando cadastro de usuario");
-
         axios.post('http://192.168.3.110:5000/api/Usuarios', usuario ,
         {
         headers:{
@@ -49,7 +47,6 @@ class CadastroUsuario extends Component{
         }
     })
         .then(data => {
-            alert("alerta de dado" + this.state.tipo)
             console.log(data);
             if(this.state.tipo == 3){
                 this.props.history.push("/CadastraProntuario")

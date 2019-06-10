@@ -31,7 +31,7 @@ class Navegador extends Component {
   render() {
     var that = this;
     return (
-      <nav id="Navegador" className="Flex-cont" >
+      <nav id="Navegador" className="Flex-cont">
         <div className="separador" />
         <ul className="Navegador Flex-cont">
 

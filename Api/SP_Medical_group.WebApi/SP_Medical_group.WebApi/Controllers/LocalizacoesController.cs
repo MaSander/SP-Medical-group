@@ -41,7 +41,8 @@ namespace SP_Medical_group.WebApi.Controllers
         {
             try
             {
-                return Ok(LocalizacaoRepository.ListarLocais());
+                var listaLocais = LocalizacaoRepository.ListarLocais().ToList();
+                return Ok(listaLocais);
             }
             catch(Exception ex)
             {

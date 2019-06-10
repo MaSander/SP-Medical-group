@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+import axios from 'axios';
 
 export class ListaLocalizacao extends Component {
     constructor(event) {
@@ -10,11 +11,26 @@ export class ListaLocalizacao extends Component {
         }
     }
 
+    componentDidMount() {
+        this.buscarLocalizacoes();
+    }
+
+    buscarLocalizacoes() {
+        axios.get("http://192.168.3.110:5000/api/localizacoes")
+            .then(res => {
+                const resPontos = res.data;
+                this.setState({ listaPontos: resPontos }, () => {
+                    console.log(this.state.listaPontos)
+                })
+            })
+
+    }
+
     render() {
 
         const styelMap = {
             width: '800px',
-            height: '89vw'
+            height: '40vh'
         }
 
         return (
@@ -24,44 +40,31 @@ export class ListaLocalizacao extends Component {
                 <div><a href="/">inicio</a></div>
 
                 <Map google={this.props.google} zoom={11}
-                    styles={styelMap}
+                    style={styelMap}
                     initialCenter={{
                         lat: -23.5489,
-                        lng: -46.6388 
+                        lng: -46.6388
                     }}>
 
-                    <Marker onClick={this.onMarkerClick}
-                        name={'Current location'}
-                        position={{ lat: 37.759703, lng: -122.428093 }}
-                    />
+                    {
+                        this.state.listaPontos.map((points) => {
+                                return (
+                                    <Marker
+                                        onClick={this.onMarkerClick}
+                                        name={'ACurrent location'}
+                                        position={{ lat: points.latitude, lng: points.longitude }}
+                                    />
 
-                    <Marker onClick={this.onMarkerClick}
-                        name={'ACurrent location'}
-                        position={{ lat: 37.762391, lng: -122.439192 }}
-                    />
-
+                                )
+                            }
+                        )
+                    }
                 </Map>
-
-
-                {/* <iframe src="file:///C:/Users/51755101856/Desktop/SP-Medical-group/Web/sp-medical-group/src/pages/Servico/mapaa.html" width="680" height="480" allowfullscreen></iframe> */}
-
             </div>
         )
     }
 
-    // geralPontos() {
-    //         return(
-    //             <div>
-
-    //             {(listaPontos.Map(point) => (
-    //                 <Marker onClick={this.onMarkerClick}
-    //                 name={'ACurrent location'}
-    //                 position={{ listaPontos.latitude, listaPontos.longitude }}
-    //                 />
-    //                 ))}
-    //             </div>
-    //         )
-    // }
+    
 }
 
 export default GoogleApiWrapper({

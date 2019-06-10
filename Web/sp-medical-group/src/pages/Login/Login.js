@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../../assets/css/login.css';
 import axios from 'axios'
+import logo from '../../assets/img/icon-login.png'
 
 
 class Login extends Component {
@@ -49,9 +50,9 @@ class Login extends Component {
                 <div className="login__Formulario">
                     <div className="Cabecalho">
                         <div id="Logo">
-                            {/* <img id="Logotipo" src="imgs/icon-login.png" alt="logo da sp medical group" /> */}
+                            <img id="Logotipo" src={logo} alt="logo da sp medical group" />
                         </div>
-                        <h1 className="med_h1"><span className="med_span">Medical</span> Group</h1>
+                        <h1 className="med_h1Login"><span className="med_span">Medical</span> Group</h1>
                     </div>
                     <form onSubmit={this.efetuarLogin.bind(this)}>
 

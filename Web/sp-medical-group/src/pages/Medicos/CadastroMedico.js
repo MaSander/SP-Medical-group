@@ -76,6 +76,11 @@ export default class CadastroMedico extends Component {
                     value={this.state.IdUsuario}
                     className="cadastroConsulta__form_nome"
                     placeholder="usuario" />
+
+                    <select>
+                        <option value='0'>Selecione</option>
+                        <option value='0'>Email Nome</option>
+                    </select>
                     
                     <input type="text"
                     onChange={this.atualizarEstadoClinica.bind(this)}
