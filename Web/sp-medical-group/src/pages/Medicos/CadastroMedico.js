@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+//import console = require('console');
 
 export default class CadastroMedico extends Component {
     constructor(event){
@@ -11,7 +12,16 @@ export default class CadastroMedico extends Component {
             ,IdEspecialidade: ""
             ,Crm: ""
             ,Telefone: ""
+            ,listaUsuarios : []
+            ,listaClinicas : []
+            ,listaEspecialidades: []
         }
+    }
+
+    componentDidMount(){
+        this.buscarUsuarios()
+        this.buscarClinicas()
+        this.buscarEspecialidades()
     }
 
     efetuarCadastroMedico(event){
@@ -58,6 +68,40 @@ export default class CadastroMedico extends Component {
     atualizarEstadoTelefone(event){
         this.setState({ Telefone: event.target.value })
     }
+
+    buscarUsuarios(){
+        axios.get("http://192.168.3.110:5000/api/Usuarios/Usuarios", {  
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('SpMedicalGroup-chave-autenticacao'),
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => {
+                const resData = res.data;
+                this.setState({ listaUsuarios : resData });
+            }
+        )
+    }
+
+    buscarClinicas(){
+        axios.get("http://192.168.3.110:5000/api/Clinicas")
+        .then(res => {
+                const resClinicas = res.data;
+                this.setState({ listaClinicas : resClinicas }
+                );
+            }
+        )
+    }
+    
+    buscarEspecialidades(){
+        axios.get("http://192.168.3.110:5000/api/Especialidades")
+        .then(res => {
+                const resEspeialidades = res.data;
+                this.setState({ listaEspecialidades : resEspeialidades }
+                );
+            }
+        )
+    }
     
     
     render(){
@@ -70,29 +114,48 @@ export default class CadastroMedico extends Component {
             <div className="cadastroConsulta__main">
                 <form className="cadastroConsulta__form"
                 onSubmit={this.efetuarCadastroMedico.bind(this)}>
-    
-                    <input type="text"
-                    onChange={this.atualizarEstadoUsuario.bind(this)}
-                    value={this.state.IdUsuario}
-                    className="cadastroConsulta__form_nome"
-                    placeholder="usuario" />
 
-                    <select>
-                        <option value='0'>Selecione</option>
-                        <option value='0'>Email Nome</option>
+                    <select
+                    onChange={this.atualizarEstadoUsuario.bind(this)}>
+                        <option value={null}>Selecione o usuario</option>
+                            {this.state.listaUsuarios.map((user) => {
+                                if(user.tipoUsuario == 2){
+                                    return(
+                                            <option value={user.id}>{user.email}</option>
+                                    )
+                                }
+                            }
+                            )}
+                    </select>
+
+                    <select
+                    onChange={this.atualizarEstadoClinica.bind(this)}>
+                        <option value={null}>Selecione a clínica</option>
+                            {this.state.listaClinicas.map((clinica) => {
+                                    return(
+                                            <option value={clinica.id}>{clinica.nomeFantasia}</option>
+                                    ) 
+                            }
+                            )}
                     </select>
                     
-                    <input type="text"
-                    onChange={this.atualizarEstadoClinica.bind(this)}
-                    value={this.state.IdClinica}
-                    className="cadastroConsulta__form_email"
-                    placeholder="Clinica" />
+                    <select
+                    onChange={this.atualizarEstadoEspecialidade.bind(this)}>
+                        <option value={null}>Selecione a especialidade</option>
+                            {this.state.listaEspecialidades.map((especi) => {
+                                    return(
+                                            <option value={especi.id}>{especi.nome}</option>
+                                    ) 
+                            }
+                            )}
+                    </select>
+
                     
-                    <input type="text"
+                    {/* <input type="text"
                     onChange={this.atualizarEstadoEspecialidade.bind(this)}
                     value={this.state.IdEspecialidade}
                     className="cadastroConsulta__form_senha"
-                    placeholder="Espeialidade" />
+                    placeholder="Espeialidade" /> */}
 
                     <input type="text"
                     onChange={this.atualizarEstadoCrm.bind(this)}

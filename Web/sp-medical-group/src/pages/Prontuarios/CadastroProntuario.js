@@ -13,7 +13,12 @@ export default class CadastroProntuario extends Component {
             , DtNascimento: ""
             , Rg: ""
             , Cpf: ""
+            , listaUsuarios: []
         }
+    }
+
+    componentDidMount() {
+        this.buscarUsuarios();
     }
 
     efetuarCadastroProntuario(event) {
@@ -26,7 +31,6 @@ export default class CadastroProntuario extends Component {
             , DtNascimento: this.state.DtNascimento
             , Rg: this.state.Rg
             , Cpf: this.state.Cpf
-            , listaUsuarios: []
         }
 
         axios.post('http://192.168.3.110:5000/api/Prontuarios', prontuario, {
@@ -69,6 +73,20 @@ export default class CadastroProntuario extends Component {
         this.setState({ Cpf: event.target.value })
     }
 
+    buscarUsuarios() {
+        axios.get("http://192.168.3.110:5000/api/Usuarios/Usuarios", {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('SpMedicalGroup-chave-autenticacao'),
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => {
+                const resData = res.data;
+                this.setState({ listaUsuarios: resData });
+            }
+            )
+    }
+
     render() {
         return (
             <div className="cadastroConsulta__body">
@@ -80,24 +98,18 @@ export default class CadastroProntuario extends Component {
                     <form className="cadastroConsulta__form"
                         onSubmit={this.efetuarCadastroProntuario.bind(this)}>
 
-                        <select className="cadastroConsulta__form_tipo"
-                            onChange={this.atualizaEstadoUsuario.bind(this)}
-                            value={this.state.IdUsuario}
-                        >
-                            {/* <option>
-                            {
-                                this.state.listaUsuarios.map((element) =>{
-                                    return <option />
-                                })
+                        <select
+                            onChange={this.atualizaEstadoUsuario.bind(this)}>
+                            <option value={null}>Selecione o usuario</option>
+                            {this.state.listaUsuarios.map((user) => {
+                                if (user.tipoUsuario == 3) {
+                                    return (
+                                        <option value={user.id}>{user.email}</option>
+                                    )
+                                }
                             }
-                        </option> */}
+                            )}
                         </select>
-
-                        <input type="text"
-                            onChange={this.atualizaEstadoUsuario.bind(this)}
-                            value={this.state.IdUsuario}
-                            className="cadastroConsulta__form_nome"
-                            placeholder="usuario" />
 
                         <input type="text"
                             onChange={this.atualizaEstadoTelefone.bind(this)}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../../assets/css/home.css';
-import Navegador from '../../components/Cabecalho/Navegador'
+import Navegador from '../Cabecalho/Navegador'
 import logo from '../../assets/img/icon-login.png'
 
 class App extends Component {

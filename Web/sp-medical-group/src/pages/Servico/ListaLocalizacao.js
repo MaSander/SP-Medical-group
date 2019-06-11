@@ -20,7 +20,7 @@ export class ListaLocalizacao extends Component {
             .then(res => {
                 const resPontos = res.data;
                 this.setState({ listaPontos: resPontos }, () => {
-                    console.log(this.state.listaPontos)
+                console.log(this.state.listaPontos)
                 })
             })
 

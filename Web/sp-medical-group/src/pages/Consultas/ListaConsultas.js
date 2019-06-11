@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../../assets/css/listaConsultas.css';
 import axios from 'axios';
-import Navegador from '../../components/Cabecalho/Navegador';
+import Navegador from '../Cabecalho/Navegador';
 import jwt_decode from 'jwt-decode';
 
 var decode;
