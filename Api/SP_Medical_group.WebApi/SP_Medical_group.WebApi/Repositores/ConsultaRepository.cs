@@ -11,8 +11,6 @@ namespace SP_Medical_group.WebApi.Repositores
 {
     public class ConsultaRepository : IConsultaRepository
     {
-        //public ConsultaViewModel ConsultaVM = new ConsultaViewModel();
-
         public void Cadastrar(Consulta consulta)
         {
             using (SpMedGroupContext ctx = new SpMedGroupContext())
@@ -50,7 +48,6 @@ namespace SP_Medical_group.WebApi.Repositores
 
             using (SpMedGroupContext ctx = new SpMedGroupContext())
             {
-                //List<Consulta> consultas = ctx.Consulta.Where(x => x.IdProntuario == prontuario.Id).ToList();
 
                 var lista = ctx.Consulta.Where(x => x.IdProntuario == prontuario.Id)
                         .Include(x => x.IdProntuarioNavigation.IdUsuarioNavigation)
@@ -79,14 +76,6 @@ namespace SP_Medical_group.WebApi.Repositores
                             Especialidade = ev.IdMedicoNavigation.IdEspecialidadeNavigation.Nome
 
                         });
-
-                //return ctx.Consulta        .Include(x => x.IdTipoSituacaoNavigation)
-                //                           .Include(x => x.IdProntuarioNavigation)
-                //                           .Include(x => x.IdProntuarioNavigation.IdUsuarioNavigation)
-                //                           .Include(x => x.IdMedicoNavigation)
-                //                           .Include(x => x.IdMedicoNavigation.IdUsuarioNavigation)
-                //                           .Include(x => x.IdMedicoNavigation.IdEspecialidadeNavigation)
-                //                           .Where(x => x.IdProntuario == prontuario.Id).ToList();
             }
         }
 
@@ -102,8 +91,6 @@ namespace SP_Medical_group.WebApi.Repositores
 
             using (SpMedGroupContext ctx = new SpMedGroupContext())
             {
-
-                //List<Consulta> consultas = ctx.Consulta.Where(x => x.IdMedico == medico.Id).ToList();
 
                 var lista = ctx.Consulta.Where(x => x.IdMedico == medico.Id)
                         .Include(x => x.IdProntuarioNavigation.IdUsuarioNavigation)

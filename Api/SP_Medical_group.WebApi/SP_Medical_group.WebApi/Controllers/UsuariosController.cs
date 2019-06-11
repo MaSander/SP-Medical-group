@@ -46,7 +46,7 @@ namespace SP_Medical_group.WebApi.Controllers
             }
         }
 
-        [Authorize]
+        // [Authorize]
         [HttpGet("Usuarios")]
         public IActionResult ListaPacientes()
         {

@@ -1,4 +1,5 @@
 ﻿using SP_Medical_group.WebApi.Domains;
+using SP_Medical_group.WebApi.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace SP_Medical_group.WebApi.Interfaces
 
         Usuarios BuscarPorEmailSenha(string email, string senha);
 
-        List<Usuarios> ListarUsuarios();
+        IEnumerable<UsuarioViewModel> ListarUsuarios();
 
         //List<Medicos> ListarMedicos();
     }

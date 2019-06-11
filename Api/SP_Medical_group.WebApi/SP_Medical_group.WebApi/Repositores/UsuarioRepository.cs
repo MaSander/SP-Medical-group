@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SP_Medical_group.WebApi.Domains;
 using SP_Medical_group.WebApi.Interfaces;
+using SP_Medical_group.WebApi.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,28 +28,25 @@ namespace SP_Medical_group.WebApi.Repositores
             }
         }
 
-        //List<Prontuarios> IUsuarioRepository.ListarPacientes()
-        //{
-        //    using (SpMedGroupContext ctx = new SpMedGroupContext())
-        //    {
-        //        return ctx.Prontuarios.ToList();
-        //    }
-        //}
-
-        //List<Medicos> IUsuarioRepository.ListarMedicos()
-        //{
-        //    using (SpMedGroupContext ctx = new SpMedGroupContext())
-        //    {
-        //        return ctx.Medicos.ToList();
-        //    }
-        //}
-
-        public List<Usuarios> ListarUsuarios()
+        public IEnumerable<UsuarioViewModel> ListarUsuarios()
         {
             using (SpMedGroupContext ctx = new SpMedGroupContext())
             {
-                return ctx.Usuarios.ToList();
+                var lista = ctx.Usuarios.Where(x => x.IdTipoUsuario == 2 || x.IdTipoUsuario == 3).ToList();
+
+                return (from ev in lista
+                        select new UsuarioViewModel()
+                        {
+                            Id = ev.Id
+                            ,
+                            Email = ev.Email
+                            ,
+                            Nome = ev.Nome
+                            ,
+                            TipoUsuario = ev.IdTipoUsuario
+                        });
             }
+
         }
     }
 }
