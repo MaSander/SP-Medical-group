@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-//import console = require('console');
+import '../../assets/css/cadastros.css';
 
 export default class CadastroMedico extends Component {
     constructor(event){

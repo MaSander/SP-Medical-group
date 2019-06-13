@@ -1,4 +1,5 @@
 ﻿using SP_Medical_group.WebApi.Domains;
+using SP_Medical_group.WebApi.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,6 @@ namespace SP_Medical_group.WebApi.Interfaces
     {
         void Cadastrar(Medicos medico);
 
-        List<Medicos> BuscarMedicos();
+        IEnumerable<MedicoViewModel> BuscarMedicos();
     }
 }

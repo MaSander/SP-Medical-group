@@ -59,7 +59,7 @@
     width: 50%;
     display: flex;
     justify-content: space-around;
-    margin-right: 10px;
+    /* margin-right: 10px; */
     align-items: center;
 }
 

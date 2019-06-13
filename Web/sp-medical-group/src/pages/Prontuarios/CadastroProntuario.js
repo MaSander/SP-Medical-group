@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import '../../assets/css/cadastros.css';
 
 export default class CadastroProntuario extends Component {
 
@@ -89,17 +90,18 @@ export default class CadastroProntuario extends Component {
 
     render() {
         return (
-            <div className="cadastroConsulta__body">
+            <div className="cadastro__body">
 
                 <div><a href="/">inicio</a></div>
                 <h1>Cadastro de Prontuario</h1>
 
-                <div className="cadastroConsulta__main">
-                    <form className="cadastroConsulta__form"
+                <div className="cadastro__main">
+                    <form className="cadastro__form"
                         onSubmit={this.efetuarCadastroProntuario.bind(this)}>
 
                         <select
-                            onChange={this.atualizaEstadoUsuario.bind(this)}>
+                            onChange={this.atualizaEstadoUsuario.bind(this)}
+                            className="cadastro__select">
                             <option value={null}>Selecione o usuario</option>
                             {this.state.listaUsuarios.map((user) => {
                                 if (user.tipoUsuario == 3) {
@@ -112,36 +114,38 @@ export default class CadastroProntuario extends Component {
                         </select>
 
                         <input type="text"
+                            className="cadastro__input"
                             onChange={this.atualizaEstadoTelefone.bind(this)}
                             value={this.state.Telefone}
-                            className="cadastroConsulta__form_nome"
                             placeholder="Telefone" />
 
                         <input type="text"
+                            className="cadastro__input"
                             onChange={this.atualizaEstadoEndereco.bind(this)}
                             value={this.state.Endereco}
-                            className="cadastroConsulta__form_nome"
                             placeholder="Endereço" />
 
                         <input type="date"
+                            className="cadastro__input"
                             onChange={this.atualizaEstadoDtNascimento.bind(this)}
                             value={this.state.DtNascimento}
-                            className="cadastroConsulta__form_nome"
                             placeholder="00/00/0000" />
 
                         <input type="text"
+                            className="cadastro__input"
                             onChange={this.atualizaEstadoRg.bind(this)}
                             value={this.state.Rg}
-                            className="cadastroConsulta__form_nome"
                             placeholder="RG" />
 
                         <input type="text"
+                            className="cadastro__input"
                             onChange={this.atualizaEstadoCpf.bind(this)}
                             value={this.state.Cpf}
-                            className="cadastroConsulta__form_nome"
                             placeholder="CPF" />
 
-                        <button>Cadastrar</button>
+                        <button
+                        className="cadastro__btnCadastro"
+                        >Cadastrar</button>
                     </form>
                 </div>
             </div>

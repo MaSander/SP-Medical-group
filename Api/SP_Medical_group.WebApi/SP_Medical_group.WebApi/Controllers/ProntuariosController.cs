@@ -38,7 +38,7 @@ namespace SP_Medical_group.WebApi.Controllers
             }
         }
 
-        [Authorize(Roles = "Administrador")]
+        //[Authorize(Roles = "Administrador")]
         [HttpGet]
         public IActionResult Get()
         {

@@ -12,7 +12,7 @@
 .ListConsulta__Sumario{
     display: flex;
     justify-content: space-around;
-    width: 100vw;
+    width: 90vw;
 }
 
 .ListConsulta__h3{

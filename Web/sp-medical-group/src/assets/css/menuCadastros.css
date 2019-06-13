@@ -1,0 +1,31 @@
+*{
+    text-decoration: none;
+}
+
+.main_MenuCadastro{
+    background-color: #83bedf;
+    width: 100%;
+    height: 100vh;
+}
+
+.links_MenuCadastro{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 70vh;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.link_a_MenuCadastro{
+    color: black;
+    transition: 0.5s;
+    font-size: 2em;
+    background-color: #81df99;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.link_a_MenuCadastro:hover{
+    font-size: 2.4em;
+}

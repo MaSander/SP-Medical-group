@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../../assets/css/cadastroUsuario.css';
+import '../../assets/css/cadastros.css';
 import axios from 'axios'
 
 class CadastroUsuario extends Component{
@@ -60,34 +60,34 @@ class CadastroUsuario extends Component{
 
     render(){
         return(
-            <div className="cadastroConsulta__body">
+            <div className="cadastro__body">
                 <a href="/">inicio</a>
 
             <h1>Cadastro de Usuario</h1>
     
-            <div className="cadastroConsulta__main">
-                <form className="cadastroConsulta__form"
+            <div className="cadastro__main">
+                <form className="cadastro__form"
                 onSubmit={this.efetuarCadastroUsuario.bind(this)}>
     
                     <input type="text"
                     onChange={this.atualizarEstadoNome.bind(this)}
                     value={this.state.nome}
-                    className="cadastroConsulta__form_nome"
+                    className="cadastro__input"
                     placeholder="insira o nome do usuario" />
                     
                     <input type="email"
                     onChange={this.atualizarEstadoEmail.bind(this)}
                     value={this.state.email}
-                    className="cadastroConsulta__form_email"
+                    className="cadastro__input"
                     placeholder="insira o email do usuario" />
                     
                     <input type="password"
                     onChange={this.atualizarEstadoSenha.bind(this)}
                     value={this.state.senha}
-                    className="cadastroConsulta__form_senha"
+                    className="cadastro__input"
                     placeholder="insira a senha do usuario" />
                     
-                    <select className="cadastroConsulta__form_tipo"
+                    <select className="cadastro__select"
                     onChange={this.atualizarEstadoTipo.bind(this)}
                     value={this.state.tipo}>
                         <option value="0">
@@ -107,7 +107,7 @@ class CadastroUsuario extends Component{
                         </option>
                     </select>
 
-                    <button className="cadastroConsulta__form_btn">Cadastrar</button>
+                    <button className="cadastro__btnCadastro">Cadastrar</button>
                 </form>
             </div>
         </div>

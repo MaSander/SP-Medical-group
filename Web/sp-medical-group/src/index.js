@@ -8,8 +8,9 @@ import CadastraUsuario from './pages/Usuarios/CadastroUsuario';
 import CadastraConsultas from './pages/Consultas/CadastroConsultas';
 import CadastraProntuario from './pages/Prontuarios/CadastroProntuario';
 import CadastraMedico from './pages/Medicos/CadastroMedico';
-import CadastraLocalizacao from './pages/Servico/CadastroLocalizacao';
-import ListaLocalizacao from './pages/Servico/ListaLocalizacao';
+import CadastraLocalizacao from './pages/Locais/CadastroLocalizacao';
+import ListaLocalizacao from './pages/Locais/ListaLocalizacao';
+import MenuCadastro from './pages/Outros/MenuCadastros';
 import { usuarioAutenticado } from '../src/services/auth'
 
 import {Route, BrowserRouter as Router, Switch, Redirect} from 'react-router-dom';
@@ -37,6 +38,7 @@ const rotas = (
                 <Permissao path='/CadastraMedico' component={CadastraMedico} />
                 <Permissao path='/CadastraLocalizacao' component={CadastraLocalizacao} />
                 <Permissao path='/ListaLocalizacao' component={ListaLocalizacao} />
+                <Permissao path='/MenuCadastro' component={MenuCadastro} />
             </Switch>
         </div>
     </Router>
